@@ -593,6 +593,451 @@
             box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
         }
 
+        .ai-helper-card {
+            background: rgba(10, 10, 18, 0.96);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.18), inset 0 0 18px rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+        }
+
+        .ai-helper-card.ai-ali {
+            border-color: rgba(38, 162, 100, 0.35);
+        }
+
+        .ai-helper-card.ai-tommy {
+            border-color: rgba(212, 175, 55, 0.45);
+        }
+
+        .ai-helper-card.ai-mikail {
+            border-color: rgba(255, 72, 72, 0.45);
+        }
+
+        .ai-helper-card.ai-benyas {
+            border-color: rgba(125, 226, 255, 0.45);
+        }
+
+        .ai-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .ai-card-header strong {
+            font-size: 15px;
+            color: #fff;
+            text-shadow: 0 0 12px rgba(255, 215, 90, 0.25);
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.95), rgba(255, 255, 255, 0.32));
+            color: #111;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.15);
+        }
+
+        .ai-helper-card.ai-ali .ai-badge {
+            background: linear-gradient(135deg, rgba(38, 162, 100, 0.95), rgba(255, 255, 255, 0.22));
+            color: #0b1f10;
+        }
+
+        .ai-helper-card.ai-tommy .ai-badge {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.95), rgba(255, 255, 255, 0.22));
+            color: #1a1400;
+        }
+
+        .ai-helper-card.ai-mikail .ai-badge {
+            background: linear-gradient(135deg, rgba(255, 72, 72, 0.95), rgba(255, 255, 255, 0.22));
+            color: #2a0b0b;
+        }
+
+        .ai-helper-card.ai-benyas .ai-badge {
+            background: linear-gradient(135deg, rgba(125, 226, 255, 0.95), rgba(255, 255, 255, 0.22));
+            color: #071619;
+        }
+
+        .ai-output {
+            min-height: 90px;
+            padding: 16px;
+            margin-top: 12px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #e7e7ff;
+            font-size: 13px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .ai-helper-card textarea {
+            width: 100%;
+            min-height: 110px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(6, 8, 15, 0.88);
+            color: #fff;
+            padding: 14px;
+            font-size: 13px;
+            resize: vertical;
+            margin-top: 10px;
+            box-shadow: inset 0 0 14px rgba(255, 255, 255, 0.06);
+        }
+
+        .ai-helper-card button {
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 11px 14px;
+            background: linear-gradient(135deg, #ffd700, #d4af37);
+            color: #111;
+            border: none;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.18);
+            transition: transform 0.24s ease, filter 0.24s ease;
+        }
+
+        .ai-helper-card button:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.05);
+            box-shadow: 0 14px 28px rgba(212, 175, 55, 0.25);
+        }
+
+        .mikail-hologram-phone {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            margin: 0 auto 22px;
+            perspective: 900px;
+        }
+
+        .mikail-hologram-phone .hologram-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 20%, rgba(212,175,55,0.18), transparent 35%),
+                        radial-gradient(circle at 20% 80%, rgba(0,170,255,0.14), transparent 30%);
+            filter: blur(18px);
+            pointer-events: none;
+        }
+
+        .mikail-hologram-phone .hologram-device {
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(18deg) rotateY(-24deg) rotateZ(1deg);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(12, 12, 20, 0.95);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 28px;
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.16), inset 0 0 24px rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+        }
+
+        .mikail-hologram-phone:hover .hologram-device {
+            transform: rotateX(10deg) rotateY(12deg) rotateZ(0deg);
+        }
+
+        .mikail-hologram-phone .phone-screen {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            row-gap: 14px;
+            padding: 18px;
+            min-height: 430px;
+            background: linear-gradient(180deg, rgba(24, 26, 50, 0.98), rgba(40, 44, 84, 0.95));
+        }
+
+        .mikail-hologram-phone .phone-content {
+            display: grid;
+            gap: 10px;
+        }
+
+        .mikail-hologram-phone .phone-title {
+            color: #d4af37;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-align: center;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .mikail-hologram-phone .phone-status {
+            color: #f0db6c;
+            font-size: 0.85rem;
+            text-align: center;
+            opacity: 0.95;
+        }
+
+        .mikail-hologram-phone .phone-app-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .mikail-hologram-phone .phone-app {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 10px 8px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            cursor: pointer;
+            font-size: 12px;
+            transition: transform 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .mikail-hologram-phone .phone-app:hover {
+            transform: translateY(-2px) scale(1.02);
+            background: rgba(212, 175, 55, 0.16);
+        }
+
+        .mikail-hologram-phone .phone-lines {
+            display: grid;
+            gap: 10px;
+        }
+
+        .mikail-hologram-phone .phone-lines span {
+            display: block;
+            height: 8px;
+            border-radius: 6px;
+            background: linear-gradient(90deg, rgba(212,175,55,0.85), rgba(255,255,255,0.45));
+            filter: drop-shadow(0 0 12px rgba(212,175,55,0.35));
+        }
+
+        .mikail-hologram-phone .phone-lines span:nth-child(1) {
+            width: 70%;
+        }
+
+        .mikail-hologram-phone .phone-lines span:nth-child(2) {
+            width: 88%;
+        }
+
+        .mikail-hologram-phone .phone-lines span:nth-child(3) {
+            width: 56%;
+        }
+
+        .mikail-hologram-phone.internal-view .phone-screen {
+            background: linear-gradient(180deg, rgba(12, 16, 28, 0.95), rgba(30, 32, 48, 0.92));
+            filter: brightness(1.08);
+        }
+
+        .mikail-hologram-phone.internal-view .hologram-device {
+            box-shadow: 0 0 28px rgba(212,175,55,0.3), inset 0 0 32px rgba(0,255,255,0.08);
+        }
+
+        .mikail-build-panel {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 12px;
+            font-size: 12px;
+            color: #ddd;
+        }
+
+        .mikail-control-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .mikail-mode-button {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 10px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .mikail-mode-button:hover {
+            transform: translateY(-1px);
+            background: rgba(212, 175, 55, 0.14);
+        }
+
+        .mikail-color-input {
+            width: 100%;
+            height: 38px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mikail-input-label {
+            font-size: 11px;
+            color: #ccc;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .mikail-preview-panel {
+            margin-top: 12px;
+            color: #ccc;
+            font-size: 12px;
+            line-height: 1.4;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 10px;
+        }
+
+        .mikail-build-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .mikail-phone-builder,
+        .mikail-sedan-builder {
+            margin-top: 16px;
+        }
+
+        .mikail-phone-add-app {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            margin-top: 10px;
+            align-items: center;
+        }
+
+        .mikail-phone-add-app input {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+        }
+
+        .mikail-phone-frame {
+            display: grid;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .mikail-phone-app-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .mikail-phone-app-grid .phone-app {
+            min-height: 52px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            padding: 10px 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mikail-phone-camera {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,0.6) 45%, rgba(0,0,0,0.2) 55%);
+            box-shadow: 0 0 6px rgba(255,255,255,0.25);
+            border: 1px solid rgba(255,255,255,0.18);
+        }
+
+        .mikail-sedan-preview-panel {
+            display: grid;
+            gap: 14px;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            margin-bottom: 14px;
+        }
+
+        .mikail-sedan-vehicle {
+            position: relative;
+            width: 100%;
+            min-height: 180px;
+            background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.04), transparent 35%);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .mikail-sedan-body {
+            position: absolute;
+            left: 12%;
+            right: 12%;
+            top: 30%;
+            height: 56px;
+            border-radius: 28px 28px 18px 18px;
+            background: #444;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: inset 0 0 18px rgba(255,255,255,0.06);
+        }
+
+        .mikail-sedan-roof {
+            position: absolute;
+            left: 20%;
+            right: 20%;
+            top: 18%;
+            height: 30px;
+            border-radius: 18px 18px 8px 8px;
+            background: rgba(0,0,0,0.18);
+            display: none;
+        }
+
+        .mikail-sedan-spoiler {
+            position: absolute;
+            left: 58%;
+            width: 24%;
+            height: 8px;
+            top: 28%;
+            background: rgba(212,175,55,0.65);
+            border-radius: 6px;
+            display: none;
+        }
+
+        .mikail-sedan-wheel {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.08);
+        }
+
+        .mikail-sedan-wheel.front {
+            left: 18%;
+            bottom: 16px;
+        }
+
+        .mikail-sedan-wheel.rear {
+            right: 18%;
+            bottom: 16px;
+        }
+
+        .mikail-sedan-status {
+            font-size: 12px;
+            color: #ddd;
+            line-height: 1.5;
+        }
+
         .workspace-doc-card {
             background: #f4f4f4;
             color: #111;
@@ -715,6 +1160,35 @@
             .stat-number {
                 font-size: 36px;
             }
+        }
+
+        .mikail-sedan-dashboard {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 10px;
+            color: #ccc;
+        }
+
+        .mikail-phone-customizer, .mikail-sedan-customizer {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .mikail-html-editor {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
         }
     </style>
 </head>
@@ -945,6 +1419,22 @@
                         <button id="benyas-send-reply-btn" class="workspace-button">Send to Selected Staff</button>
                         <div id="benyas-reply-status" style="margin-top:8px; font-size:12px;"></div>
                     </div>
+                    <div class="workspace-card ai-helper-card ai-benyas">
+                        <div class="ai-card-header">
+                            <div>
+                                <span class="ai-badge">Diamond AI</span>
+                                <strong style="font-size:14px; color:#b7f0ff;">Executive Advisor</strong>
+                            </div>
+                            <span style="font-size:11px; color:#99d8ff;">Business, investment, health, science, engineering</span>
+                        </div>
+                        <p style="font-size:12px; color:#ccc; margin:8px 0;">Ask Diamond AI for guidance on business strategy, finances, health, math, robotics, or science before you make a decision.</p>
+                        <textarea id="benyas-ai-input" placeholder="Ask the AI about business, investment, health, robotics, or scientific strategy..."></textarea>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px;">
+                            <button class="workspace-button" onclick="runWorkspaceAI('benyas')">Ask Diamond AI</button>
+                            <button class="workspace-button" onclick="analyzeBeforeSend('benyas')">Analyze Before Sending</button>
+                        </div>
+                        <div id="benyas-ai-output" class="ai-output">Diamond AI is ready to help.</div>
+                    </div>
                     <div class="workspace-card">
                         <h4>Email Delivery</h4>
                         <p>Messages are also sent to <a href="mailto:benyasontop@gmail.com" style="color:#d4af37;">benyasontop@gmail.com</a> when you press send.</p>
@@ -978,6 +1468,19 @@
                         <textarea id="ali-code-editor" style="width: 100%; height: 250px; background: rgba(0,0,0,0.5); border: 1px solid rgba(212,175,55,0.3); border-radius: 6px; padding: 8px; color: #0f0; font-family: 'Courier New', monospace; font-size: 11px; margin-bottom: 12px;" placeholder="// Write your code here..."></textarea>
                         <button id="ali-submit-code-btn" style="background: #d4af37; color: #111; border: none; padding: 8px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 12px; width: 100%;">Submit Code to Founder</button>
                         <div id="ali-code-status" style="margin-top: 8px; font-size: 11px; color: #aaa;"></div>
+                    </div>
+                    <div class="workspace-card ai-helper-card ai-ali">
+                        <div class="ai-card-header">
+                            <span class="ai-badge">Green AI</span>
+                            <strong>IT Safety Advisor</strong>
+                        </div>
+                        <p style="font-size:12px; color:#ccc; margin:8px 0;">Green AI helps Ali choose safe deployment actions, catch bad code, and decide whether system changes are the right move.</p>
+                        <textarea id="ali-ai-input" placeholder="Ask the AI about deployment, code quality, security, or maintenance..."></textarea>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px;">
+                            <button class="workspace-button" onclick="runWorkspaceAI('ali')">Ask Green AI</button>
+                            <button class="workspace-button" onclick="analyzeBeforeSend('ali')">Analyze Before Sending</button>
+                        </div>
+                        <div id="ali-ai-output" class="ai-output">Green AI is monitoring system risk and code quality.</div>
                     </div>
 
                     <hr style="margin:20px 0; border:none; border-top:1px solid rgba(255,255,255,0.08);">
@@ -1047,6 +1550,19 @@
                         <button id="tommy-access-funds-btn" style="background: #d4af37; color: #111; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 12px; width: 100%; margin-bottom: 8px;">Access Stored Funds</button>
                         <div id="tommy-access-status" style="background: rgba(0,0,0,0.15); border: 1px solid rgba(212,175,55,0.3); padding: 8px; border-radius: 6px; font-size: 11px; color: #fff;">Permission status: Pending Founder approval.</div>
                     </div>
+                    <div class="workspace-card ai-helper-card ai-tommy">
+                        <div class="ai-card-header">
+                            <span class="ai-badge">Gold AI</span>
+                            <strong>Finance & Risk Advisor</strong>
+                        </div>
+                        <p style="font-size:12px; color:#ccc; margin:8px 0;">Gold AI helps Tommy evaluate investments, route email correctly, and spot risky moves before approval.</p>
+                        <textarea id="tommy-ai-input" placeholder="Ask the AI about investment strategy, stock risk, email routing, or fund access..."></textarea>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px;">
+                            <button class="workspace-button" onclick="runWorkspaceAI('tommy')">Ask Gold AI</button>
+                            <button class="workspace-button" onclick="analyzeBeforeSend('tommy')">Analyze Before Sending</button>
+                        </div>
+                        <div id="tommy-ai-output" class="ai-output">Gold AI is tracking your financial and operational decisions.</div>
+                    </div>
 
                     <hr style="margin:20px 0; border:none; border-top:1px solid rgba(255,255,255,0.08);">
                     <div class="workspace-card">
@@ -1109,75 +1625,195 @@
                     <!-- Benyas Labs Blueprint Creator for Mohammed -->
                     <div class="workspace-card">
                         <h4>📊 Project Manager Suite — Benyas Labs</h4>
-                        <p style="font-size:12px; color:#bbb; margin:8px 0;">Create and manage projects using integrated blueprint designer. Benyas AI validates all designs for safety and feasibility.</p>
-                        
-                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 0; background: rgba(212,175,55,0.08); padding: 12px; border-radius: 8px; font-size: 11px;">
-                            <div>
-                                <h5 style="color: #d4af37; margin: 0 0 8px 0; font-size: 11px;">⚛️ CHEMISTRY</h5>
-                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px;">
-                                    <div class="mikail-palette-item" draggable="true" data-element="hydrogen" style="padding: 4px; background: rgba(255,255,255,0.1); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">H</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="carbon" style="padding: 4px; background: rgba(0,0,0,0.3); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">C</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="nitrogen" style="padding: 4px; background: rgba(100,150,255,0.3); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">N</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="oxygen" style="padding: 4px; background: rgba(255,100,100,0.3); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">O</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="sodium" style="padding: 4px; background: rgba(255,200,0,0.3); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Na</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="chlorine" style="padding: 4px; background: rgba(100,255,100,0.3); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Cl ⚠</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="phosphorus" style="padding: 4px; background: rgba(255,180,180,0.3); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">P ⚠</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="sulfur" style="padding: 4px; background: rgba(255,255,150,0.3); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">S ⚠</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="potassium" style="padding: 4px; background: rgba(255,170,0,0.3); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">K ⚠</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="calcium" style="padding: 4px; background: rgba(255,221,221,0.3); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Ca</div>
+                        <p style="font-size:12px; color:#bbb; margin:8px 0;">Create and manage projects using integrated blueprint design. Build a phone, add apps, tune the camera, and design a sedan with a fixed fuel limit.</p>
+
+                        <div class="mikail-build-tabs">
+                            <button class="mikail-mode-button" onclick="setMikailBuildMode('phone')">Phone Lab</button>
+                            <button class="mikail-mode-button" onclick="setMikailBuildMode('car')">Sedan Lab</button>
+                            <button class="mikail-mode-button" onclick="toggleMikailInternalView()">Toggle Internal</button>
+                        </div>
+
+                        <div id="mikail-phone-builder-section" class="mikail-phone-builder">
+                            <div class="mikail-phone-customizer">
+                                <h3 style="color: #d4af37; margin-bottom: 15px;">Benyas X Phone Customizer</h3>
+                                <div class="mikail-control-grid">
+                                    <label class="mikail-input-label">Phone Frame Colour
+                                        <input id="mikail-phone-frame-color" class="mikail-color-input" type="color" value="#141414" onchange="updateMikailPhoneAppearance()">
+                                    </label>
+                                    <label class="mikail-input-label">Phone Design Style
+                                        <select id="mikail-phone-design-style" onchange="updateMikailPhoneAppearance()" style="width:100%; border-radius:12px; padding:10px; border:1px solid rgba(255,255,255,0.1); background:#111; color:#fff;">
+                                            <option value="modern">Modern</option>
+                                            <option value="classic">Classic</option>
+                                            <option value="neon">Neon</option>
+                                        </select>
+                                    </label>
+                                    <label class="mikail-input-label">Camera Lens
+                                        <select id="mikail-phone-camera-style" onchange="updateMikailPhoneAppearance()" style="width:100%; border-radius:12px; padding:10px; border:1px solid rgba(255,255,255,0.1); background:#111; color:#fff;">
+                                            <option value="standard">Standard</option>
+                                            <option value="wide">Wide Angle</option>
+                                            <option value="tele">Telephoto</option>
+                                        </select>
+                                    </label>
                                 </div>
-                                <div style="margin-top: 6px; padding: 6px; background: rgba(255,100,100,0.15); border-radius: 4px; font-size: 9px; color: #ff9999;">
-                                    <strong>⚠ EXTREME TOXINS (REJECTED):</strong><br>Hg (Mercury), Pb (Lead), As (Arsenic), CN (Cyanide)
+                                <div class="mikail-phone-add-app">
+                                    <input id="mikail-new-phone-app" type="text" placeholder="Add a new app name" autocomplete="off">
+                                    <button class="mikail-mode-button" onclick="addMikailPhoneApp()">Add App</button>
+                                </div>
+                                <div class="mikail-html-editor">
+                                    <label class="mikail-input-label">Custom HTML (for advanced customization)
+                                        <textarea id="mikail-phone-html" placeholder="Enter custom HTML to modify the phone content..." rows="4" style="width:100%; border-radius:12px; padding:10px; border:1px solid rgba(255,255,255,0.1); background:#111; color:#fff; font-family: monospace; resize: vertical;"></textarea>
+                                    </label>
+                                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                                        <button class="mikail-mode-button" onclick="applyMikailPhoneHTML()">Apply HTML</button>
+                                        <button class="mikail-mode-button" onclick="saveMikailPhoneDesign()">Save Design</button>
+                                        <button class="mikail-mode-button" onclick="loadMikailPhoneDesign()">Load Saved</button>
+                                        <button class="mikail-mode-button" onclick="resetMikailPhoneDesign()">Reset</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <h5 style="color: #d4af37; margin: 0 0 8px 0; font-size: 11px;">⚙️ ROBOTICS</h5>
-                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px;">
-                                    <div class="mikail-palette-item" draggable="true" data-element="microchip" style="padding: 4px; background: rgba(0,255,0,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">🖥 Chip</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="cpu" style="padding: 4px; background: rgba(0,221,0,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">CPU</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="wire_copper" style="padding: 4px; background: rgba(204,102,0,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Wire</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="resistor" style="padding: 4px; background: rgba(255,153,51,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Resistor</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="capacitor" style="padding: 4px; background: rgba(255,204,0,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Cap</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="battery" style="padding: 4px; background: rgba(255,255,0,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">🔋 Battery</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="motor" style="padding: 4px; background: rgba(0,204,255,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Motor</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="sensor" style="padding: 4px; background: rgba(255,0,255,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Sensor</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="transistor" style="padding: 4px; background: rgba(0,255,170,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Transistor</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="diode" style="padding: 4px; background: rgba(170,0,255,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Diode</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="led" style="padding: 4px; background: rgba(255,255,170,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">💡 LED</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="switch" style="padding: 4px; background: rgba(170,170,170,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">🔘 Switch</div>
+
+                            <div class="mikail-hologram-phone">
+                                <div class="hologram-glow"></div>
+                                <div class="hologram-device" id="mikail-hologram-device">
+                                    <div class="phone-screen">
+                                        <div class="phone-content" id="mikail-phone-content">
+                                            <div class="phone-title">Benyas X</div>
+                                            <div class="phone-status" id="mikail-hologram-status">Mode: PHONE</div>
+                                            <div class="phone-lock-panel" id="mikail-phone-lock-panel">
+                                                <input id="mikail-phone-password" type="password" placeholder="Enter password" style="width: calc(100% - 24px); padding: 8px 10px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.08); color: #fff; margin-bottom: 10px; outline: none;" />
+                                                <button onclick="unlockMikailPhone(event)" style="width: 100%; padding: 8px 0; border-radius: 14px; border: 1px solid rgba(212,175,55,0.6); background: rgba(212,175,55,0.18); color: #fff; font-weight: 700; cursor: pointer;">Unlock</button>
+                                                <div id="mikail-phone-lock-msg" style="color: #d4af37; margin-top: 8px; font-size: 12px; min-height: 18px;">Enter password to unlock</div>
+                                            </div>
+                                            <div class="phone-app-grid" id="mikail-phone-app-grid">
+                                                <a href="https://www.roblox.com/games/78971628849407/Five-Nights-At-Wesleys" class="phone-app" onclick="openMikailPhoneApp(event, 'five-nights')">
+                                                    <span class="phone-app-icon">🎮</span>
+                                                    <span>Five Nights</span>
+                                                </a>
+                                                <a href="#" class="phone-app soon" onclick="openMikailPhoneApp(event, 'slug-game')">
+                                                    <span class="phone-app-icon">🐌</span>
+                                                    <span>Slug Game</span>
+                                                </a>
+                                                <a href="https://discord.gg/28tPXTF6C" class="phone-app" onclick="openMikailPhoneApp(event, 'discord')">
+                                                    <span class="phone-app-icon">💬</span>
+                                                    <span>Discord</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div id="mikail-phone-camera" class="mikail-phone-camera"></div>
+                                        <div class="phone-lines">
+                                            <span></span><span></span><span></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <h5 style="color: #d4af37; margin: 0 0 8px 0; font-size: 11px;">🔧 MECHANICAL</h5>
-                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px;">
-                                    <div class="mikail-palette-item" draggable="true" data-element="steel" style="padding: 4px; background: rgba(128,128,128,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Steel</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="aluminum" style="padding: 4px; background: rgba(192,192,192,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Aluminum</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="bolt" style="padding: 4px; background: rgba(102,102,102,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Bolt</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="spring" style="padding: 4px; background: rgba(119,119,119,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Spring</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="gear" style="padding: 4px; background: rgba(136,136,136,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Gear</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="bearing" style="padding: 4px; background: rgba(153,153,153,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Bearing</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="pulley" style="padding: 4px; background: rgba(170,170,170,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Pulley</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="piston" style="padding: 4px; background: rgba(187,187,187,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Piston</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="shaft" style="padding: 4px; background: rgba(221,221,221,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Shaft</div>
-                                    <div class="mikail-palette-item" draggable="true" data-element="lever" style="padding: 4px; background: rgba(238,238,238,0.2); border-radius: 4px; cursor: move; user-select: none; font-size: 10px;">Lever</div>
+
+                            <div id="mikail-phone-preview" class="mikail-preview-panel">Phone design preview is active. Customize appearance, add apps, and modify HTML content.</div>
+                        </div>
+
+                        <div id="mikail-sedan-builder-section" class="mikail-sedan-builder" style="display:none;">
+                            <div class="mikail-sedan-customizer">
+                                <h3 style="color: #d4af37; margin-bottom: 15px;">Benyas Sedan Customizer</h3>
+                                <div class="mikail-control-grid">
+                                    <label class="mikail-input-label">Sedan Colour
+                                        <input id="mikail-sedan-color" class="mikail-color-input" type="color" value="#444444" onchange="updateMikailSedanOptions()">
+                                    </label>
+                                    <label class="mikail-input-label">Tire Size
+                                        <select id="mikail-sedan-tire-size" onchange="updateMikailSedanOptions()" style="width:100%; border-radius:12px; padding:10px; border:1px solid rgba(255,255,255,0.1); background:#111; color:#fff;">
+                                            <option value="15">15"</option>
+                                            <option value="16">16" selected>16"</option>
+                                            <option value="17">17"</option>
+                                            <option value="18">18"</option>
+                                        </select>
+                                    </label>
+                                    <label class="mikail-input-label">Spoiler
+                                        <select id="mikail-sedan-spoiler" onchange="updateMikailSedanOptions()" style="width:100%; border-radius:12px; padding:10px; border:1px solid rgba(255,255,255,0.1); background:#111; color:#fff;">
+                                            <option value="none">None</option>
+                                            <option value="small">Small</option>
+                                            <option value="large">Large</option>
+                                        </select>
+                                    </label>
+                                    <label class="mikail-input-label">Sunroof
+                                        <select id="mikail-sedan-sunroof" onchange="updateMikailSedanOptions()" style="width:100%; border-radius:12px; padding:10px; border:1px solid rgba(255,255,255,0.1); background:#111; color:#fff;">
+                                            <option value="closed">Closed</option>
+                                            <option value="tinted">Tinted</option>
+                                            <option value="open">Open</option>
+                                        </select>
+                                    </label>
+                                    <label class="mikail-input-label">Engine Mode
+                                        <select id="mikail-sedan-engine-mode" onchange="updateMikailSedanOptions()" style="width:100%; border-radius:12px; padding:10px; border:1px solid rgba(255,255,255,0.1); background:#111; color:#fff;">
+                                            <option value="eco">Eco</option>
+                                            <option value="normal">Normal</option>
+                                            <option value="sport">Sport</option>
+                                        </select>
+                                    </label>
+                                    <label class="mikail-input-label">Brake Setup
+                                        <select id="mikail-sedan-brake-style" onchange="updateMikailSedanOptions()" style="width:100%; border-radius:12px; padding:10px; border:1px solid rgba(255,255,255,0.1); background:#111; color:#fff;">
+                                            <option value="standard">Standard</option>
+                                            <option value="performance">Performance</option>
+                                            <option value="ceramic">Ceramic</option>
+                                        </select>
+                                    </label>
+                                    <label class="mikail-input-label">Aero Kit
+                                        <select id="mikail-sedan-aero-kit" onchange="updateMikailSedanOptions()" style="width:100%; border-radius:12px; padding:10px; border:1px solid rgba(255,255,255,0.1); background:#111; color:#fff;">
+                                            <option value="none">None</option>
+                                            <option value="sport">Sport</option>
+                                            <option value="gt">GT</option>
+                                        </select>
+                                    </label>
                                 </div>
-                                <div style="margin-top: 6px; padding: 6px; background: rgba(0,204,255,0.15); border-radius: 4px; font-size: 9px; color: #66d9ff;">
-                                    <strong>⚡ FORCES:</strong><br>Gravity • Heat • Pressure • Electricity
+                                <div class="mikail-html-editor">
+                                    <label class="mikail-input-label">Custom HTML (for advanced customization)
+                                        <textarea id="mikail-sedan-html" placeholder="Enter custom HTML to modify the sedan dashboard..." rows="4" style="width:100%; border-radius:12px; padding:10px; border:1px solid rgba(255,255,255,0.1); background:#111; color:#fff; font-family: monospace; resize: vertical;"></textarea>
+                                    </label>
+                                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                                        <button class="mikail-mode-button" onclick="applyMikailSedanHTML()">Apply HTML</button>
+                                        <button class="mikail-mode-button" onclick="saveMikailSedanDesign()">Save Design</button>
+                                        <button class="mikail-mode-button" onclick="loadMikailSedanDesign()">Load Saved</button>
+                                        <button class="mikail-mode-button" onclick="resetMikailSedanDesign()">Reset</button>
+                                    </div>
                                 </div>
+                            </div>
+
+                            <div class="mikail-sedan-preview-panel">
+                                <div class="mikail-sedan-vehicle" id="mikail-sedan-vehicle">
+                                    <div class="mikail-sedan-body" id="mikail-sedan-body"></div>
+                                    <div class="mikail-sedan-roof" id="mikail-sedan-roof"></div>
+                                    <div class="mikail-sedan-spoiler" id="mikail-sedan-spoiler"></div>
+                                    <div class="mikail-sedan-wheel front" id="mikail-sedan-wheel-front"></div>
+                                    <div class="mikail-sedan-wheel rear" id="mikail-sedan-wheel-rear"></div>
+                                    <div class="mikail-sedan-dashboard" id="mikail-sedan-dashboard">
+                                        <div class="dashboard-content" id="mikail-dashboard-content">
+                                            <div style="text-align: center; color: #d4af37; font-size: 12px; margin-bottom: 8px;">Benyas Sedan Dashboard</div>
+                                            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #ccc;">
+                                                <span>FUEL: 45L</span>
+                                                <span id="mikail-engine-display">ECO</span>
+                                                <span id="mikail-speed-display">0 km/h</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="mikail-sedan-status" class="mikail-sedan-status">Sedan preview is ready. Fuel is fixed at 45L and cannot be changed.</div>
                             </div>
                         </div>
 
-                        <div id="mikail-blueprint-canvas" style="width: 100%; height: 300px; background: linear-gradient(135deg, rgba(20,20,30,0.6), rgba(30,20,40,0.6)); border: 2px solid rgba(212,175,55,0.3); border-radius: 8px; position: relative; overflow: hidden; margin-bottom: 12px; touch-action: none;">
-                            <div style="position: absolute; top: 8px; left: 8px; color: #666; font-size: 10px;">Drag & drop elements • Double-click to remove</div>
-                            <svg id="mikail-blueprint-svg" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></svg>
-                            <div id="mikail-elements-container" style="width: 100%; height: 100%; position: relative;"></div>
-                        </div>
-
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
                             <button onclick="clearBlueprint('mikail')" style="background: rgba(212,175,55,0.2); border: 1px solid rgba(212,175,55,0.5); color: #d4af37; padding: 8px; border-radius: 6px; cursor: pointer; font-size: 12px;">Clear Canvas</button>
                             <button id="mikail-send-blueprint-btn" style="background: #d4af37; color: #111; border: none; padding: 8px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 12px;">Send to Benyas Labs</button>
                         </div>
                         <div id="mikail-blueprint-status" style="margin-top: 8px; font-size: 11px; color: #aaa;"></div>
+                    </div>
+                    <div class="workspace-card ai-helper-card ai-mikail">
+                        <div class="ai-card-header">
+                            <span class="ai-badge">Red AI</span>
+                            <strong>Design & Safety Guide</strong>
+                        </div>
+                        <p style="font-size:12px; color:#ccc; margin:8px 0;">Red AI evaluates your blueprint decisions, flags weak engineering choices, and tells you what is strong or bad.</p>
+                        <textarea id="mikail-ai-input" placeholder="Ask the AI about your blueprint, circuit design, components, or car build..."></textarea>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px;">
+                            <button class="workspace-button" onclick="runWorkspaceAI('mikail')">Ask Red AI</button>
+                            <button class="workspace-button" onclick="analyzeBeforeSend('mikail')">Analyze Before Sending</button>
+                        </div>
+                        <div id="mikail-ai-output" class="ai-output">Red AI is ready to review engineering, materials, and safety choices.</div>
                     </div>
 
                     <hr style="margin:20px 0; border:none; border-top:1px solid rgba(255,255,255,0.08);">
@@ -1835,7 +2471,14 @@
             piston: { name: 'Piston', symbol: '|', color: '#bbbbbb', type: 'mechanical', toxicity: 'none' },
             hinge: { name: 'Hinge', symbol: '⌐', color: '#cccccc', type: 'mechanical', toxicity: 'none' },
             shaft: { name: 'Shaft', symbol: '⟷', color: '#dddddd', type: 'mechanical', toxicity: 'none' },
-            lever: { name: 'Lever', symbol: '⚖', color: '#eeeeee', type: 'mechanical', toxicity: 'none' }
+            lever: { name: 'Lever', symbol: '⚖', color: '#eeeeee', type: 'mechanical', toxicity: 'none' },
+            tire: { name: 'Tire', symbol: '◯', color: '#333333', type: 'mechanical', toxicity: 'none' },
+            wheel: { name: 'Wheel', symbol: '⚪', color: '#bbbbbb', type: 'mechanical', toxicity: 'none' },
+            chassis: { name: 'Chassis', symbol: '▭', color: '#777777', type: 'mechanical', toxicity: 'none' },
+            spoiler: { name: 'Spoiler', symbol: '🟪', color: '#9966ff', type: 'mechanical', toxicity: 'none' },
+            dashboard: { name: 'Dashboard', symbol: '📟', color: '#3399ff', type: 'mechanical', toxicity: 'none' },
+            axle: { name: 'Axle', symbol: '═', color: '#aaaaaa', type: 'mechanical', toxicity: 'none' },
+            suspension: { name: 'Suspension', symbol: '🔩', color: '#dddddd', type: 'mechanical', toxicity: 'none' }
         };
 
         let blueprints = {
@@ -1843,6 +2486,490 @@
             tommy: { elements: [], svgCode: '' },
             mikail: { elements: [], svgCode: '' }
         };
+
+        let mikailBuildMode = 'phone';
+        let mikailInternalView = false;
+        let mikailHologramColor = '#d4af37';
+        let mikailPhoneFrameColor = '#141414';
+        let mikailPhoneDesignStyle = 'modern';
+        let mikailPhoneCameraStyle = 'standard';
+        let mikailPhoneApps = ['Maps', 'Camera', 'Messages', 'Music'];
+        let mikailCarOptions = {
+            tireColor: '#ff0044',
+            rideHeight: 12,
+            bodyStyle: 'standard'
+        };
+        let mikailSedanOptions = {
+            color: '#444444',
+            tireSize: '16',
+            spoiler: 'none',
+            sunroof: 'closed',
+            engineMode: 'eco',
+            brakeStyle: 'standard',
+            aeroKit: 'none'
+        };
+        const mikailFuelLimit = 45;
+
+        function getMikailStrokeColor() {
+            return mikailHologramColor || '#d4af37';
+        }
+
+        function setMikailBuildMode(mode) {
+            mikailBuildMode = mode;
+            const status = document.getElementById('mikail-hologram-status');
+            const phoneSection = document.getElementById('mikail-phone-builder-section');
+            const sedanSection = document.getElementById('mikail-sedan-builder-section');
+            const preview = document.getElementById('mikail-phone-preview');
+
+            if (phoneSection && sedanSection) {
+                phoneSection.style.display = mode === 'phone' ? 'block' : 'none';
+                sedanSection.style.display = mode === 'car' ? 'block' : 'none';
+            }
+            if (status) {
+                status.textContent = `Mode: ${mode.toUpperCase()}${mikailInternalView ? ' — INTERNAL' : ''}`;
+                status.style.color = mikailHologramColor;
+            }
+            if (preview) {
+                preview.textContent = mode === 'car'
+                    ? 'Sedan lab is active. Change colour, tyre size, spoiler, sunroof, engine and brake setup.'
+                    : 'Phone lab is active. Add apps, tune camera, and adjust phone design.';
+            }
+            renderMikailPhoneApps();
+            updateMikailHologramAppearance();
+            updateMikailSedanOptions();
+            updateBlueprintBonds('mikail');
+        }
+
+        function renderMikailPhoneApps() {
+            const grid = document.getElementById('mikail-phone-app-grid');
+            if (!grid) return;
+            grid.innerHTML = mikailPhoneApps.map(app => `
+                <button type="button" class="phone-app" onclick="selectMikailPhoneApp('${app.replace(/'/g, "\\'")}')">${app}</button>
+            `).join('');
+        }
+
+        function selectMikailPhoneApp(app) {
+            const status = document.getElementById('mikail-hologram-status');
+            if (status) {
+                status.textContent = `Mode: ${mikailBuildMode.toUpperCase()} — ${app}`;
+            }
+        }
+
+        function updateMikailPhoneAppearance() {
+            const frameInput = document.getElementById('mikail-phone-frame-color');
+            const designInput = document.getElementById('mikail-phone-design-style');
+            const cameraInput = document.getElementById('mikail-phone-camera-style');
+            const device = document.getElementById('mikail-hologram-device');
+            const screen = document.querySelector('.mikail-hologram-phone .phone-screen');
+            const camera = document.getElementById('mikail-phone-camera');
+            const preview = document.getElementById('mikail-phone-preview');
+
+            if (frameInput) mikailPhoneFrameColor = frameInput.value;
+            if (designInput) mikailPhoneDesignStyle = designInput.value;
+            if (cameraInput) mikailPhoneCameraStyle = cameraInput.value;
+
+            if (device) {
+                device.style.background = mikailPhoneFrameColor;
+                device.style.borderColor = mikailPhoneFrameColor + '55';
+                device.style.boxShadow = `0 0 20px ${mikailPhoneFrameColor}22, inset 0 0 24px ${mikailPhoneFrameColor}16`;
+            }
+            if (screen) {
+                screen.style.background = mikailPhoneDesignStyle === 'modern'
+                    ? 'linear-gradient(180deg, rgba(24, 26, 50, 0.98), rgba(40, 44, 84, 0.95))'
+                    : mikailPhoneDesignStyle === 'classic'
+                        ? 'linear-gradient(180deg, rgba(15, 15, 25, 0.98), rgba(32, 24, 44, 0.96))'
+                        : 'linear-gradient(180deg, rgba(18, 5, 30, 0.95), rgba(48, 10, 70, 0.96))';
+            }
+            if (camera) {
+                camera.style.boxShadow = mikailPhoneCameraStyle === 'tele'
+                    ? '0 0 10px rgba(255,255,255,0.35)'
+                    : '0 0 6px rgba(255,255,255,0.25)';
+                camera.style.width = mikailPhoneCameraStyle === 'wide' ? '20px' : '16px';
+                camera.style.height = mikailPhoneCameraStyle === 'wide' ? '20px' : '16px';
+            }
+            if (preview) {
+                preview.innerHTML = `Phone design updated: ${mikailPhoneDesignStyle} shell, ${mikailPhoneCameraStyle} camera, ${mikailPhoneApps.length} apps installed.`;
+            }
+        }
+
+        function addMikailPhoneApp() {
+            const input = document.getElementById('mikail-new-phone-app');
+            const preview = document.getElementById('mikail-phone-preview');
+            if (!input) return;
+            const appName = input.value.trim();
+            if (!appName) {
+                if (preview) preview.textContent = 'Enter an app name before adding.';
+                return;
+            }
+            mikailPhoneApps.push(appName);
+            input.value = '';
+            renderMikailPhoneApps();
+            if (preview) preview.textContent = `App '${appName}' added. Tap an icon to preview.`;
+        }
+
+        function updateMikailCarOptions() {
+            const tireColorInput = document.getElementById('mikail-car-tire-color');
+            const rideHeightInput = document.getElementById('mikail-car-height');
+            const bodyStyleInput = document.getElementById('mikail-car-body-style');
+            if (tireColorInput) mikailCarOptions.tireColor = tireColorInput.value;
+            if (rideHeightInput) mikailCarOptions.rideHeight = rideHeightInput.value;
+            if (bodyStyleInput) mikailCarOptions.bodyStyle = bodyStyleInput.value;
+            const preview = document.getElementById('mikail-car-preview');
+            if (preview) {
+                preview.innerHTML = `Tire: <span style="color:${mikailCarOptions.tireColor};">${mikailCarOptions.tireColor}</span> · Height: ${mikailCarOptions.rideHeight}px · Style: ${mikailCarOptions.bodyStyle}.`;
+            }
+            const elements = document.querySelectorAll('#mikail-elements-container div[data-element="tire"], #mikail-elements-container div[data-element="wheel"]');
+            elements.forEach(el => {
+                el.style.background = mikailCarOptions.tireColor;
+                el.style.boxShadow = `0 0 8px ${mikailCarOptions.tireColor}60`;
+            });
+        }
+
+        function updateMikailSedanOptions() {
+            const colorInput = document.getElementById('mikail-sedan-color');
+            const tireSizeInput = document.getElementById('mikail-sedan-tire-size');
+            const spoilerInput = document.getElementById('mikail-sedan-spoiler');
+            const sunroofInput = document.getElementById('mikail-sedan-sunroof');
+            const engineInput = document.getElementById('mikail-sedan-engine-mode');
+            const brakeInput = document.getElementById('mikail-sedan-brake-style');
+            const aeroInput = document.getElementById('mikail-sedan-aero-kit');
+            const status = document.getElementById('mikail-sedan-status');
+            const body = document.getElementById('mikail-sedan-body');
+            const roof = document.getElementById('mikail-sedan-roof');
+            const spoilerElement = document.getElementById('mikail-sedan-spoiler');
+            const frontWheel = document.getElementById('mikail-sedan-wheel-front');
+            const rearWheel = document.getElementById('mikail-sedan-wheel-rear');
+
+            if (colorInput) mikailSedanOptions.color = colorInput.value;
+            if (tireSizeInput) mikailSedanOptions.tireSize = tireSizeInput.value;
+            if (spoilerInput) mikailSedanOptions.spoiler = spoilerInput.value;
+            if (sunroofInput) mikailSedanOptions.sunroof = sunroofInput.value;
+            if (engineInput) mikailSedanOptions.engineMode = engineInput.value;
+            if (brakeInput) mikailSedanOptions.brakeStyle = brakeInput.value;
+            if (aeroInput) mikailSedanOptions.aeroKit = aeroInput.value;
+
+            if (body) {
+                body.style.background = mikailSedanOptions.color;
+            }
+            if (roof) {
+                roof.style.display = mikailSedanOptions.sunroof === 'closed' ? 'none' : 'block';
+                roof.style.opacity = mikailSedanOptions.sunroof === 'open' ? '0.85' : '0.4';
+            }
+            if (spoilerElement) {
+                spoilerElement.style.display = mikailSedanOptions.spoiler === 'none' ? 'none' : 'block';
+                spoilerElement.style.width = mikailSedanOptions.spoiler === 'large' ? '32%' : '24%';
+            }
+            const wheelScale = mikailSedanOptions.tireSize === '18' ? 1.18 : mikailSedanOptions.tireSize === '17' ? 1.1 : 1;
+            if (frontWheel && rearWheel) {
+                [frontWheel, rearWheel].forEach(wheel => {
+                    wheel.style.width = `${28 * wheelScale}px`;
+                    wheel.style.height = `${28 * wheelScale}px`;
+                });
+            }
+            if (status) {
+                status.innerHTML = `Fuel limit: <strong>${mikailFuelLimit}L</strong> fixed. Tire size: ${mikailSedanOptions.tireSize}. <br>Engine: ${mikailSedanOptions.engineMode}, Brake: ${mikailSedanOptions.brakeStyle}, Aero: ${mikailSedanOptions.aeroKit}, Sunroof: ${mikailSedanOptions.sunroof}.`;
+            }
+
+            // Update dashboard displays
+            const engineDisplay = document.getElementById('mikail-engine-display');
+            const speedDisplay = document.getElementById('mikail-speed-display');
+            if (engineDisplay) {
+                engineDisplay.textContent = mikailSedanOptions.engineMode.toUpperCase();
+            }
+            if (speedDisplay) {
+                const speeds = { eco: '60', normal: '120', sport: '180' };
+                speedDisplay.textContent = speeds[mikailSedanOptions.engineMode] || '0' + ' km/h';
+            }
+        }
+
+        function unlockMikailPhone(event) {
+            event.preventDefault();
+            const passwordInput = document.getElementById('mikail-phone-password');
+            const messageEl = document.getElementById('mikail-phone-lock-msg');
+            const password = passwordInput.value.trim();
+
+            if (password === 'BenyasX26') {
+                messageEl.textContent = 'Unlocked — apps ready.';
+                const lockStatus = document.querySelector('#mikail-phone-content .phone-status');
+                if (lockStatus) lockStatus.textContent = 'Unlocked';
+                document.body.classList.add('mikail-phone-unlocked');
+                return;
+            }
+
+            messageEl.textContent = 'Incorrect password. Try again.';
+            passwordInput.value = '';
+        }
+
+        function openMikailPhoneApp(event, appId) {
+            event.preventDefault();
+            const isUnlocked = document.body.classList.contains('mikail-phone-unlocked');
+
+            if (!isUnlocked) {
+                alert('Enter the phone password to unlock apps.');
+                return;
+            }
+
+            const placeholders = {
+                'five-nights': 'https://www.roblox.com/games/78971628849407/Five-Nights-At-Wesleys',
+                'discord': 'https://discord.gg/28tPXTF6C'
+            };
+
+            if (appId === 'slug-game') {
+                alert('Slug Game is coming soon!');
+                return;
+            }
+
+            const url = placeholders[appId];
+            window.open(url, '_blank');
+        }
+
+        function applyMikailPhoneHTML() {
+            const htmlInput = document.getElementById('mikail-phone-html');
+            const customHtml = htmlInput.value.trim();
+            const phoneContent = document.getElementById('mikail-phone-content');
+
+            if (!customHtml) {
+                alert('Please enter some HTML to apply.');
+                return;
+            }
+
+            try {
+                // Create a temporary container to test the HTML
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = customHtml;
+
+                // Replace the phone content (but keep the title and status)
+                const title = phoneContent.querySelector('.phone-title');
+                const status = phoneContent.querySelector('.phone-status');
+                const lockPanel = phoneContent.querySelector('.phone-lock-panel');
+                const appGrid = phoneContent.querySelector('.phone-app-grid');
+
+                phoneContent.innerHTML = '';
+                if (title) phoneContent.appendChild(title);
+                if (status) phoneContent.appendChild(status);
+                if (lockPanel) phoneContent.appendChild(lockPanel);
+                if (appGrid) phoneContent.appendChild(appGrid);
+
+                // Add the custom HTML
+                const customDiv = document.createElement('div');
+                customDiv.innerHTML = customHtml;
+                phoneContent.appendChild(customDiv);
+
+                document.getElementById('mikail-phone-preview').textContent = 'Custom HTML applied successfully!';
+            } catch (error) {
+                alert('Invalid HTML. Please check your syntax.');
+                document.getElementById('mikail-phone-preview').textContent = 'Error: Invalid HTML syntax.';
+            }
+        }
+
+        function saveMikailPhoneDesign() {
+            const design = {
+                frameColor: document.getElementById('mikail-phone-frame-color').value,
+                designStyle: document.getElementById('mikail-phone-design-style').value,
+                cameraStyle: document.getElementById('mikail-phone-camera-style').value,
+                apps: [...mikailPhoneApps],
+                customHtml: document.getElementById('mikail-phone-html').value,
+                timestamp: new Date().toISOString()
+            };
+
+            localStorage.setItem('mikailPhoneDesign', JSON.stringify(design));
+            document.getElementById('mikail-phone-preview').textContent = 'Phone design saved successfully!';
+        }
+
+        function loadMikailPhoneDesign() {
+            const savedDesign = localStorage.getItem('mikailPhoneDesign');
+            if (!savedDesign) {
+                alert('No saved phone design found.');
+                return;
+            }
+
+            try {
+                const design = JSON.parse(savedDesign);
+
+                // Apply saved settings
+                document.getElementById('mikail-phone-frame-color').value = design.frameColor;
+                document.getElementById('mikail-phone-design-style').value = design.designStyle;
+                document.getElementById('mikail-phone-camera-style').value = design.cameraStyle;
+                document.getElementById('mikail-phone-html').value = design.customHtml || '';
+
+                // Restore apps
+                mikailPhoneApps = [...design.apps];
+                renderMikailPhoneApps();
+
+                // Update appearance
+                updateMikailPhoneAppearance();
+
+                // Apply custom HTML if present
+                if (design.customHtml) {
+                    applyMikailPhoneHTML();
+                }
+
+                document.getElementById('mikail-phone-preview').textContent = 'Phone design loaded successfully!';
+            } catch (error) {
+                alert('Error loading saved design.');
+            }
+        }
+
+        function resetMikailPhoneDesign() {
+            if (!confirm('Are you sure you want to reset the phone design?')) return;
+
+            // Reset to defaults
+            document.getElementById('mikail-phone-frame-color').value = '#141414';
+            document.getElementById('mikail-phone-design-style').value = 'modern';
+            document.getElementById('mikail-phone-camera-style').value = 'standard';
+            document.getElementById('mikail-phone-html').value = '';
+            document.getElementById('mikail-phone-password').value = '';
+
+            // Reset apps
+            mikailPhoneApps = ['Maps', 'Camera', 'Messages', 'Music'];
+            renderMikailPhoneApps();
+
+            // Reset appearance
+            updateMikailPhoneAppearance();
+
+            // Reset lock status
+            document.body.classList.remove('mikail-phone-unlocked');
+            const lockStatus = document.querySelector('#mikail-phone-content .phone-status');
+            if (lockStatus) lockStatus.textContent = 'Locked';
+
+            document.getElementById('mikail-phone-preview').textContent = 'Phone design reset to defaults.';
+        }
+
+        function applyMikailSedanHTML() {
+            const htmlInput = document.getElementById('mikail-sedan-html');
+            const customHtml = htmlInput.value.trim();
+            const dashboardContent = document.getElementById('mikail-dashboard-content');
+
+            if (!customHtml) {
+                alert('Please enter some HTML to apply.');
+                return;
+            }
+
+            try {
+                // Replace dashboard content
+                dashboardContent.innerHTML = customHtml;
+                document.getElementById('mikail-sedan-status').textContent = 'Custom dashboard HTML applied successfully!';
+            } catch (error) {
+                alert('Invalid HTML. Please check your syntax.');
+                document.getElementById('mikail-sedan-status').textContent = 'Error: Invalid HTML syntax.';
+            }
+        }
+
+        function saveMikailSedanDesign() {
+            const design = {
+                color: document.getElementById('mikail-sedan-color').value,
+                tireSize: document.getElementById('mikail-sedan-tire-size').value,
+                spoiler: document.getElementById('mikail-sedan-spoiler').value,
+                sunroof: document.getElementById('mikail-sedan-sunroof').value,
+                engineMode: document.getElementById('mikail-sedan-engine-mode').value,
+                brakeStyle: document.getElementById('mikail-sedan-brake-style').value,
+                aeroKit: document.getElementById('mikail-sedan-aero-kit').value,
+                customHtml: document.getElementById('mikail-sedan-html').value,
+                timestamp: new Date().toISOString()
+            };
+
+            localStorage.setItem('mikailSedanDesign', JSON.stringify(design));
+            document.getElementById('mikail-sedan-status').textContent = 'Sedan design saved successfully!';
+        }
+
+        function loadMikailSedanDesign() {
+            const savedDesign = localStorage.getItem('mikailSedanDesign');
+            if (!savedDesign) {
+                alert('No saved sedan design found.');
+                return;
+            }
+
+            try {
+                const design = JSON.parse(savedDesign);
+
+                // Apply saved settings
+                document.getElementById('mikail-sedan-color').value = design.color;
+                document.getElementById('mikail-sedan-tire-size').value = design.tireSize;
+                document.getElementById('mikail-sedan-spoiler').value = design.spoiler;
+                document.getElementById('mikail-sedan-sunroof').value = design.sunroof;
+                document.getElementById('mikail-sedan-engine-mode').value = design.engineMode;
+                document.getElementById('mikail-sedan-brake-style').value = design.brakeStyle;
+                document.getElementById('mikail-sedan-aero-kit').value = design.aeroKit;
+                document.getElementById('mikail-sedan-html').value = design.customHtml || '';
+
+                // Update appearance
+                updateMikailSedanOptions();
+
+                // Apply custom HTML if present
+                if (design.customHtml) {
+                    applyMikailSedanHTML();
+                }
+
+                document.getElementById('mikail-sedan-status').textContent = 'Sedan design loaded successfully!';
+            } catch (error) {
+                alert('Error loading saved design.');
+            }
+        }
+
+        function resetMikailSedanDesign() {
+            if (!confirm('Are you sure you want to reset the sedan design?')) return;
+
+            // Reset to defaults
+            document.getElementById('mikail-sedan-color').value = '#444444';
+            document.getElementById('mikail-sedan-tire-size').value = '16';
+            document.getElementById('mikail-sedan-spoiler').value = 'none';
+            document.getElementById('mikail-sedan-sunroof').value = 'closed';
+            document.getElementById('mikail-sedan-engine-mode').value = 'eco';
+            document.getElementById('mikail-sedan-brake-style').value = 'standard';
+            document.getElementById('mikail-sedan-aero-kit').value = 'none';
+            document.getElementById('mikail-sedan-html').value = '';
+
+            // Reset dashboard
+            document.getElementById('mikail-dashboard-content').innerHTML = `
+                <div style="text-align: center; color: #d4af37; font-size: 12px; margin-bottom: 8px;">Benyas Sedan Dashboard</div>
+                <div style="display: flex; justify-content: space-between; font-size: 10px; color: #ccc;">
+                    <span>FUEL: 45L</span>
+                    <span id="mikail-engine-display">ECO</span>
+                    <span id="mikail-speed-display">0 km/h</span>
+                </div>
+            `;
+
+            // Update appearance
+            updateMikailSedanOptions();
+
+            document.getElementById('mikail-sedan-status').textContent = 'Sedan design reset to defaults.';
+        }
+
+        function disassembleBlueprint(staff) {
+            const container = document.getElementById(`${staff}-elements-container`);
+            if (!container) return;
+            Array.from(container.children).forEach(el => {
+                if (!el.dataset.homeX) {
+                    el.dataset.homeX = el.offsetLeft;
+                    el.dataset.homeY = el.offsetTop;
+                }
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 70 + Math.random() * 70;
+                el.style.left = (parseFloat(el.dataset.homeX) + Math.cos(angle) * distance) + 'px';
+                el.style.top = (parseFloat(el.dataset.homeY) + Math.sin(angle) * distance) + 'px';
+                el.dataset.disassembled = 'true';
+                el.style.opacity = '0.8';
+            });
+            updateBlueprintBonds(staff);
+            const statusEl = document.getElementById(`${staff}-blueprint-status`);
+            if (statusEl) statusEl.textContent = '⚙ Disassembled for inspection. Press Reassemble to restore.';
+        }
+
+        function reassembleBlueprint(staff) {
+            const container = document.getElementById(`${staff}-elements-container`);
+            if (!container) return;
+            Array.from(container.children).forEach(el => {
+                if (el.dataset.homeX) {
+                    el.style.left = el.dataset.homeX + 'px';
+                    el.style.top = el.dataset.homeY + 'px';
+                }
+                el.dataset.disassembled = 'false';
+                el.style.opacity = '1';
+            });
+            updateBlueprintBonds(staff);
+            const statusEl = document.getElementById(`${staff}-blueprint-status`);
+            if (statusEl) statusEl.textContent = '✅ Reassembled into the hologram build.';
+        }
 
         function initBlueprintCreator(staff) {
             const canvas = document.getElementById(`${staff}-blueprint-canvas`);
@@ -1882,6 +3009,7 @@
 
             const id = Date.now() + Math.random();
             const container = document.getElementById(`${staff}-elements-container`);
+            const elementColor = staff === 'mikail' && (type === 'tire' || type === 'wheel') ? mikailCarOptions.tireColor : props.color;
             const div = document.createElement('div');
             div.id = `blueprint-${staff}-${id}`;
             div.draggable = true;
@@ -1892,7 +3020,7 @@
                 width: 32px;
                 height: 32px;
                 border-radius: 50%;
-                background: ${props.color};
+                background: ${elementColor};
                 border: 2px solid #d4af37;
                 display: flex;
                 align-items: center;
@@ -1901,25 +3029,35 @@
                 user-select: none;
                 font-weight: bold;
                 font-size: 11px;
-                box-shadow: 0 0 6px ${props.color}60;
+                box-shadow: 0 0 6px ${elementColor}60;
             `;
             div.textContent = props.symbol;
             div.dataset.element = type;
             div.dataset.id = id;
+            div.dataset.homeX = x;
+            div.dataset.homeY = y;
 
             let offsetX, offsetY;
+            let moveHandler;
+            const upHandler = () => {
+                if (moveHandler) {
+                    document.removeEventListener('mousemove', moveHandler);
+                    moveHandler = null;
+                }
+                document.removeEventListener('mouseup', upHandler);
+            };
+
             div.addEventListener('mousedown', (e) => {
                 offsetX = e.clientX - div.offsetLeft;
                 offsetY = e.clientY - div.offsetTop;
                 const canvas = document.getElementById(`${staff}-blueprint-canvas`);
-                document.addEventListener('mousemove', (me) => {
+                moveHandler = (me) => {
                     div.style.left = (me.clientX - canvas.getBoundingClientRect().left - offsetX) + 'px';
                     div.style.top = (me.clientY - canvas.getBoundingClientRect().top - offsetY) + 'px';
                     updateBlueprintBonds(staff);
-                });
-                document.addEventListener('mouseup', () => {
-                    document.removeEventListener('mousemove', null);
-                });
+                };
+                document.addEventListener('mousemove', moveHandler);
+                document.addEventListener('mouseup', upHandler);
             });
 
             div.addEventListener('dblclick', () => {
@@ -1946,7 +3084,8 @@
                         (el1.offsetTop + 16) - (el2.offsetTop + 16)
                     );
                     if (dist < 70) {
-                        lines.push(`<line x1="${el1.offsetLeft + 16}" y1="${el1.offsetTop + 16}" x2="${el2.offsetLeft + 16}" y2="${el2.offsetTop + 16}" stroke="rgba(212,175,55,0.4)" stroke-width="1.5"/>`);
+                        const lineColor = staff === 'mikail' ? getMikailStrokeColor() : 'rgba(212,175,55,0.4)';
+                        lines.push(`<line x1="${el1.offsetLeft + 16}" y1="${el1.offsetTop + 16}" x2="${el2.offsetLeft + 16}" y2="${el2.offsetTop + 16}" stroke="${lineColor}" stroke-width="1.5" stroke-opacity="0.55"/>`);
                     }
                 }
             }
@@ -2224,9 +3363,357 @@
             renderBenyasBlueprints();
         }
 
-        // Initialize blueprint creators on page load (only for Mikail)
+        const aiAssistantConfig = {
+            ali: { name: 'Green AI', color: '#38d39f', role: 'IT Safety Advisor' },
+            tommy: { name: 'Gold AI', color: '#d4af37', role: 'Finance & Risk Advisor' },
+            mikail: { name: 'Red AI', color: '#ff4c4c', role: 'Design & Safety Guide' },
+            benyas: { name: 'Diamond AI', color: '#7de2ff', role: 'Executive Advisor' }
+        };
+
+        function getCurrentDraft(role) {
+            if (role === 'ali') {
+                return document.getElementById('ali-code-editor')?.value || document.getElementById('ali-letter-input')?.value || '';
+            }
+            if (role === 'tommy') {
+                return document.getElementById('tommy-investment-desc')?.value || document.getElementById('tommy-letter-input')?.value || document.getElementById('tommy-email-body')?.value || '';
+            }
+            if (role === 'mikail') {
+                return document.getElementById('mikail-letter-input')?.value || document.getElementById('mikail-blueprint-status')?.textContent || '';
+            }
+            return document.getElementById('benyas-reply-input')?.value || '';
+        }
+
+        function analyzeBeforeSend(role) {
+            const output = document.getElementById(`${role}-ai-output`);
+            const draft = getCurrentDraft(role).trim();
+            if (!draft) {
+                if (output) output.textContent = '🧠 Nothing to analyze yet. Enter a draft or task first.';
+                return;
+            }
+            const analysis = generateAIAnalysis(role, draft);
+            if (output) output.innerHTML = `<strong>${aiAssistantConfig[role].name} Analysis:</strong><br>${analysis}`;
+        }
+
+        let aiConversationHistory = {
+            benyas: [],
+            ali: [],
+            tommy: [],
+            mikail: []
+        };
+
+        function runWorkspaceAI(role) {
+            const input = document.getElementById(`${role}-ai-input`);
+            const output = document.getElementById(`${role}-ai-output`);
+            const prompt = input?.value.trim();
+            if (!prompt) {
+                if (output) output.textContent = '🧠 Ask the AI a specific question or describe the task first.';
+                return;
+            }
+
+            // Store user input in conversation history
+            aiConversationHistory[role].push({ type: 'user', message: prompt });
+
+            // Keep only last 5 conversations for context
+            if (aiConversationHistory[role].length > 5) {
+                aiConversationHistory[role] = aiConversationHistory[role].slice(-5);
+            }
+
+            const advice = generateAIAdvice(role, prompt);
+            if (output) output.innerHTML = `<strong>${aiAssistantConfig[role].name}:</strong> ${advice}`;
+
+            // Store AI response in conversation history
+            aiConversationHistory[role].push({ type: 'ai', message: advice });
+
+            // Clear input after response
+            if (input) input.value = '';
+        }
+
+        function generateAIAdvice(role, prompt) {
+            const text = prompt.toLowerCase();
+            const has = phrase => text.includes(phrase);
+            const hasAny = phrases => phrases.some(phrase => text.includes(phrase));
+            const hasAll = phrases => phrases.every(phrase => text.includes(phrase));
+
+            // Check for follow-up questions
+            const followUpIndicators = ['what about', 'how about', 'what if', 'why', 'explain', 'tell me more', 'elaborate', 'clarify'];
+            const isFollowUp = followUpIndicators.some(indicator => has(indicator));
+
+            // Get recent conversation context
+            const recentHistory = aiConversationHistory[role].slice(-2); // Last 2 exchanges
+            const hasPreviousContext = recentHistory.length > 0;
+
+            // Enhanced keyword detection
+            const keywords = {
+                deployment: ['deploy', 'release', 'update', 'push', 'publish', 'rollout'],
+                security: ['security', 'password', 'access', 'credentials', 'auth', 'login', 'encrypt', 'hack', 'breach'],
+                bugs: ['bug', 'error', 'crash', 'failure', 'issue', 'problem', 'fix', 'debug'],
+                investment: ['investment', 'fund', 'budget', 'capital', 'money', 'finance', 'profit', 'loss'],
+                email: ['email', 'message', 'recipient', 'route', 'inbox', 'communication'],
+                blueprint: ['blueprint', 'circuit', 'chip', 'design', 'build', 'prototype', 'engineer'],
+                car: ['car', 'vehicle', 'tire', 'suspension', 'chassis', 'sedan', 'automotive'],
+                safety: ['safety', 'risk', 'hazard', 'danger', 'secure', 'protect', 'safe'],
+                business: ['business', 'strategy', 'team', 'growth', 'company', 'enterprise'],
+                health: ['health', 'mental', 'physical', 'wellbeing', 'stress', 'balance', 'rest']
+            };
+
+            if (role === 'ali') {
+                if (hasAny(keywords.deployment)) {
+                    const responses = [
+                        'Green AI: Before deployment, ensure comprehensive testing in staging. Create rollback plans and schedule during low-traffic periods. Monitor closely for the first 30 minutes post-deployment.',
+                        'Green AI: Deployment checklist: backups verified ✓, staging tests passed ✓, rollback ready ✓, monitoring active ✓. Only proceed if all checks are green.',
+                        'Green AI: Smart deployment means zero downtime. Use blue-green deployment strategy, have a rollback script ready, and notify stakeholders of the maintenance window.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+                if (hasAny(keywords.security)) {
+                    const responses = [
+                        'Green AI: Security first! Implement multi-factor authentication, encrypt all sensitive data at rest and in transit, and never store credentials in plain text.',
+                        'Green AI: For credential management, use a secure vault system. Rotate passwords regularly and implement least-privilege access controls.',
+                        'Green AI: Security breach prevention: regular audits, intrusion detection, employee training, and immediate response protocols are essential.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+                if (hasAny(keywords.bugs)) {
+                    const responses = [
+                        'Green AI: Debug systematically: reproduce the issue, isolate the problem, implement the fix, then test thoroughly. Don\'t rush - quality over speed.',
+                        'Green AI: Error handling is crucial. Log errors properly, implement graceful degradation, and have monitoring alerts for critical failures.',
+                        'Green AI: Root cause analysis: ask what changed recently, check logs, reproduce in development, and test edge cases before deploying the fix.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+                if (has('help') || has('advice')) {
+                    return 'Green AI: I\'m here to help with IT operations, security, and system reliability. Ask me about deployments, security measures, debugging, or system maintenance.';
+                }
+                return 'Green AI: Focus on system stability and security. Every change should improve reliability. What specific IT challenge are you facing?';
+            }
+
+            if (role === 'tommy') {
+                if (hasAny(keywords.investment)) {
+                    const responses = [
+                        'Gold AI: Investment decisions require careful analysis. Calculate ROI, assess risk-reward ratios, and ensure diversification. Always get Founder approval for high-risk moves.',
+                        'Gold AI: Before investing, conduct thorough due diligence. Check market conditions, competitive landscape, and exit strategies. Risk management is key.',
+                        'Gold AI: Smart investing means protecting capital first. Use stop-loss orders, diversify across sectors, and never invest more than you can afford to lose.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+                if (hasAny(keywords.email)) {
+                    const responses = [
+                        'Gold AI: Email routing is critical for efficiency. High-priority messages to Founder, financial matters to appropriate channels, and general communications to the team inbox.',
+                        'Gold AI: Communication protocols: sensitive information gets encrypted delivery, urgent matters get immediate routing, and all financial decisions require approval chains.',
+                        'Gold AI: Email management: archive important communications, flag for follow-up, and ensure secure transmission of sensitive data.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+                if (has('profit') || has('loss') || has('sell') || has('buy')) {
+                    const responses = [
+                        'Gold AI: Trading decisions should be data-driven. Analyze trends, set clear entry/exit points, and use position sizing to manage risk.',
+                        'Gold AI: Market timing is difficult. Focus on long-term value investing rather than short-term speculation. Patience often outperforms aggression.',
+                        'Gold AI: Financial moves: assess opportunity cost, consider tax implications, and ensure compliance with regulatory requirements.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+                if (has('help') || has('advice')) {
+                    return 'Gold AI: I specialize in financial strategy, risk management, and investment decisions. Ask me about budgets, investments, market analysis, or communication routing.';
+                }
+                return 'Gold AI: Financial prudence guides all decisions. What fiscal matter needs attention?';
+            }
+
+            if (role === 'mikail') {
+                if (hasAny(keywords.blueprint)) {
+                    const responses = [
+                        'Red AI: Engineering excellence requires precision. Verify all connections, test component interactions, and document your design thoroughly.',
+                        'Red AI: Blueprint creation: start with requirements, design modular components, validate with simulations, and prototype iteratively.',
+                        'Red AI: Circuit design principles: minimize complexity, maximize reliability, and always include safety margins. Quality over speed.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+                if (hasAny(keywords.car)) {
+                    const responses = [
+                        'Red AI: Automotive design demands balance. Optimize weight distribution, ensure proper suspension geometry, and test extensively before production.',
+                        'Red AI: Vehicle engineering: aerodynamic efficiency, structural integrity, and safety systems are paramount. Every component serves a purpose.',
+                        'Red AI: Car modifications: maintain balance, consider performance trade-offs, and ensure compliance with safety standards.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+                if (hasAny(keywords.safety)) {
+                    const responses = [
+                        'Red AI: Safety is non-negotiable. Implement redundant systems, conduct failure mode analysis, and test beyond normal operating conditions.',
+                        'Red AI: Risk mitigation: identify failure points, implement safeguards, and design for worst-case scenarios.',
+                        'Red AI: Engineering safety: use proven materials, follow industry standards, and incorporate fail-safe mechanisms.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+                if (has('help') || has('advice')) {
+                    return 'Red AI: I focus on engineering design, safety protocols, and technical innovation. Ask me about blueprints, automotive design, or system reliability.';
+                }
+                return 'Red AI: Engineering solutions should be elegant, reliable, and safe. What technical challenge are you solving?';
+            }
+
+            if (role === 'benyas') {
+                if (hasAny(keywords.investment) || hasAny(keywords.business)) {
+                    const responses = [
+                        'Diamond AI: Strategic decisions shape the future. Evaluate opportunities against our mission, assess long-term value, and ensure team alignment.',
+                        'Diamond AI: Business growth requires balance. Scale sustainably, protect company culture, and maintain financial discipline.',
+                        'Diamond AI: Leadership means making tough choices. Prioritize initiatives that create lasting value and strengthen our competitive position.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+                if (hasAny(keywords.health)) {
+                    const responses = [
+                        'Diamond AI: Personal wellbeing enables better leadership. Schedule regular breaks, maintain work-life balance, and prioritize health for sustained performance.',
+                        'Diamond AI: Mental clarity comes from rest and perspective. Take time for reflection, exercise, and meaningful relationships outside work.',
+                        'Diamond AI: Sustainable leadership: recognize that your energy levels directly impact decision quality and team morale.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+                if (has('math') || has('science') || has('engineering')) {
+                    const responses = [
+                        'Diamond AI: Technical excellence requires first principles thinking. Question assumptions, validate with data, and build upon proven foundations.',
+                        'Diamond AI: Innovation comes from deep understanding. Master the fundamentals, then push boundaries thoughtfully.',
+                        'Diamond AI: Scientific method in business: form hypotheses, test rigorously, and iterate based on evidence.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+                if (has('help') || has('advice')) {
+                    return 'Diamond AI: I provide executive guidance on strategy, leadership, and company direction. Ask me about business decisions, personal wellbeing, or technical strategy.';
+                }
+                return 'Diamond AI: True leadership combines vision with execution. What strategic matter requires your attention?';
+            }
+
+            // Fallback responses based on role and context
+            const fallbackResponses = {
+                ali: [
+                    'Green AI: I\'m your IT safety advisor. Ask me about system security, deployments, debugging, or maintenance procedures.',
+                    'Green AI: Need help with a technical issue? Tell me about the deployment, security concern, or bug you\'re facing.',
+                    'Green AI: System reliability is my priority. What IT challenge can I help you solve today?'
+                ],
+                tommy: [
+                    'Gold AI: I\'m your finance and risk advisor. Ask me about investments, budgets, market analysis, or communication protocols.',
+                    'Gold AI: Financial decisions require careful analysis. What fiscal matter needs attention?',
+                    'Gold AI: Risk management and strategic investments are my expertise. How can I assist with your financial planning?'
+                ],
+                mikail: [
+                    'Red AI: I\'m your design and safety guide. Ask me about engineering blueprints, automotive design, or technical safety.',
+                    'Red AI: Engineering excellence demands precision. What technical challenge are you working on?',
+                    'Red AI: Safety and reliability in design are paramount. How can I help with your engineering project?'
+                ],
+                benyas: [
+                    'Diamond AI: I\'m your executive advisor. Ask me about business strategy, leadership decisions, or company direction.',
+                    'Diamond AI: Strategic thinking drives success. What executive matter requires your attention?',
+                    'Diamond AI: Leadership combines vision with execution. How can I support your strategic goals?'
+                ]
+            };
+
+            // If it's a follow-up question, provide more detailed context
+            if (isFollowUp && hasPreviousContext) {
+                const lastAIResponse = recentHistory.find(item => item.type === 'ai')?.message || '';
+                if (lastAIResponse.includes('deployment')) {
+                    return `${aiAssistantConfig[role].name}: To elaborate on deployment best practices: always have a rollback plan, monitor for 30+ minutes post-deployment, and ensure you have comprehensive backups. What specific aspect would you like me to explain further?`;
+                }
+                if (lastAIResponse.includes('security')) {
+                    return `${aiAssistantConfig[role].name}: Regarding security measures: implement defense in depth, regular security audits, and employee training are crucial. Multi-factor authentication and encrypted communications are minimum requirements.`;
+                }
+                if (lastAIResponse.includes('investment')) {
+                    return `${aiAssistantConfig[role].name}: On investments: focus on diversified portfolios, understand risk-reward ratios, and never invest more than you can afford to lose. Long-term value investing typically outperforms short-term trading.`;
+                }
+            }
+
+            // Random fallback response
+            const roleResponses = fallbackResponses[role] || ['AI: I\'m here to help. Please ask a specific question about your role or current task.'];
+            return roleResponses[Math.floor(Math.random() * roleResponses.length)];
+        }
+
+        function generateAIAnalysis(role, draft) {
+            const text = draft.toLowerCase();
+            const words = text.split(/\s+/);
+            const wordCount = words.length;
+
+            // Enhanced risk analysis
+            const riskIndicators = {
+                high: ['bug', 'error', 'hack', 'unsafe', 'failure', 'risk', 'explosive', 'overload', 'crash', 'leak', 'exposed', 'unapproved', 'danger', 'hazard', 'emergency'],
+                medium: ['urgent', 'pressure', 'short', 'cheap', 'unclear', 'unknown', 'temporary', 'experimental', 'unstable', 'complex'],
+                positive: ['secure', 'tested', 'backup', 'approved', 'stable', 'safe', 'valid', 'optimized', 'balanced', 'reviewed', 'verified', 'documented', 'standard']
+            };
+
+            const foundHighRisk = riskIndicators.high.filter(word => text.includes(word));
+            const foundMediumRisk = riskIndicators.medium.filter(word => text.includes(word));
+            const foundPositive = riskIndicators.positive.filter(word => text.includes(word));
+
+            let analysis = '';
+            let riskLevel = 'low';
+            let recommendations = [];
+
+            // Analyze content quality
+            if (wordCount < 10) {
+                analysis += '⚠ Draft is very brief. Consider adding more detail for clarity.\n';
+                recommendations.push('Expand on the key points and provide more context.');
+            } else if (wordCount > 200) {
+                analysis += '⚠ Draft is quite long. Consider breaking it into smaller, focused sections.\n';
+                recommendations.push('Split complex ideas into separate communications.');
+            }
+
+            // Risk assessment
+            if (foundHighRisk.length > 0) {
+                riskLevel = 'high';
+                analysis += `🚨 HIGH RISK: Detected ${foundHighRisk.length} concerning terms: ${[...new Set(foundHighRisk)].join(', ')}.\n`;
+                recommendations.push('Address these risks before proceeding.');
+            } else if (foundMediumRisk.length > 0) {
+                riskLevel = 'medium';
+                analysis += `⚠ MEDIUM RISK: Found ${foundMediumRisk.length} cautionary terms: ${[...new Set(foundMediumRisk)].join(', ')}.\n`;
+                recommendations.push('Review and mitigate these concerns.');
+            }
+
+            if (foundPositive.length > 0) {
+                analysis += `✅ POSITIVE: ${foundPositive.length} good practices identified: ${[...new Set(foundPositive)].join(', ')}.\n`;
+            }
+
+            // Role-specific analysis
+            const roleAdvice = {
+                ali: {
+                    high: 'IT operations require extra scrutiny. Implement additional testing and monitoring.',
+                    medium: 'Standard IT protocols should be followed. Ensure proper documentation.',
+                    low: 'This appears to follow IT best practices. Proceed with standard procedures.'
+                },
+                tommy: {
+                    high: 'Financial matters need Founder approval. Route for immediate review.',
+                    medium: 'Financial decisions require careful analysis. Get appropriate approvals.',
+                    low: 'Financial plan looks solid. Ensure proper documentation and compliance.'
+                },
+                mikail: {
+                    high: 'Engineering risks detected. Conduct additional safety reviews and testing.',
+                    medium: 'Engineering changes need thorough validation. Follow design protocols.',
+                    low: 'Engineering approach appears sound. Ensure proper documentation.'
+                },
+                benyas: {
+                    high: 'Executive decision requires careful consideration. Consult advisors and review thoroughly.',
+                    medium: 'Strategic matters need team alignment. Consider broader implications.',
+                    low: 'Strategic direction appears well-considered. Ensure team communication.'
+                }
+            };
+
+            analysis += roleAdvice[role][riskLevel];
+
+            // Add specific recommendations
+            if (recommendations.length > 0) {
+                analysis += '\n\n💡 Recommendations:\n' + recommendations.map(rec => `• ${rec}`).join('\n');
+            }
+
+            // Add confidence level
+            const confidence = foundPositive.length - (foundHighRisk.length * 2 + foundMediumRisk.length);
+            if (confidence > 2) {
+                analysis += '\n\n🎯 High confidence in this approach.';
+            } else if (confidence < -1) {
+                analysis += '\n\n⚠ Low confidence - additional review recommended.';
+            } else {
+                analysis += '\n\n🤔 Moderate confidence - proceed with caution.';
+            }
+
+            return analysis;
+        }
         setTimeout(() => {
             initBlueprintCreator('mikail');
+            setMikailBuildMode('phone');
+            updateMikailCarOptions();
         }, 500);
 
         // Ali IT Management - Maintenance and Code Submission
@@ -2546,6 +4033,20 @@
         if (mikailSendBlueprintBtn) {
             mikailSendBlueprintBtn.addEventListener('click', () => sendBlueprint('mikail'));
         }
+
+        // AI Keyboard Support - Allow Enter key to trigger AI responses
+        const aiRoles = ['benyas', 'ali', 'tommy', 'mikail'];
+        aiRoles.forEach(role => {
+            const aiInput = document.getElementById(`${role}-ai-input`);
+            if (aiInput) {
+                aiInput.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' && !event.shiftKey) {
+                        event.preventDefault();
+                        runWorkspaceAI(role);
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
