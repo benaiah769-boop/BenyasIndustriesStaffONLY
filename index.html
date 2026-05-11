@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benyas Industries Staff</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* ===== ACCESS PANEL ===== */
+        #access-panel {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top, rgba(14, 14, 14, 0.98), rgba(0, 0, 0, 0.98));
+            padding: 24px;
+        }
+
+        #access-box {
+            width: 100%;
+            max-width: 480px;
+            background: rgba(18, 18, 18, 0.98);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        #access-box h1 {
+            margin-bottom: 18px;
+            font-size: 28px;
+            letter-spacing: 0.8px;
+            color: #f6e7b3;
+        }
+
+        #access-box p {
+            color: #c7c7c7;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        #staff-email {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: #111;
+            border: 1px solid #333;
+            color: #f5f5f5;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        #staff-password {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: #111;
+            border: 1px solid #333;
+            color: #f5f5f5;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        #unlock-btn {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #d4af37, #f6e7b3);
+            color: #111;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #unlock-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        #error-msg {
+            min-height: 22px;
+            color: #f07171;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        #page-content {
+            display: none;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            z-index: 500;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #d4af37, #f6e7b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        nav .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        nav .nav-links a:hover {
+            color: #d4af37;
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
+
+        nav .nav-links a.active {
+            color: #ffd700;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 80px 2rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #d4af37, #f6e7b3, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #aaa;
+            margin-bottom: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #d4af37, #f6e7b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #aaa;
+            font-size: 18px;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== FAMILY TREE ===== */
+        .family-tree-section {
+            padding: 80px 2rem;
+        }
+
+        .family-tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .tree-level {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .family-member {
+            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            cursor: pointer;
+            min-width: 280px;
+            text-align: center;
+        }
+
+        .family-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.5s ease;
+            z-index: 1;
+        }
+
+        .family-member:hover {
+            border-color: #d4af37;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .family-member:hover::before {
+            left: 100%;
+        }
+
+        .member-avatar {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #333, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .member-info {
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .member-name {
+            font-size: 24px;
+            font-weight: 900;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .member-role {
+            font-size: 14px;
+            color: #ffd700;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .member-description {
+            font-size: 15px;
+            color: #bbb;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-badge {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #d4af37;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: #d4af37;
+        }
+
+        /* ===== BLUEPRINTS SECTION ===== */
+        .blueprints-section {
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+
+        .blueprints-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blueprint-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .blueprint-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .blueprint-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .blueprint-image-slot {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+        }
+
+        .blueprint-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .blueprint-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .blueprint-description {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ===== FINAL VIEW SECTION ===== */
+        .final-view-section {
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, #121212 0%, #1f1f1f 100%);
+        }
+
+        .final-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .final-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: center;
+        }
+
+        .final-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .final-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .final-info {
+            padding: 2rem;
+        }
+
+        .final-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .final-description {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats-section {
+            padding: 80px 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            border-color: #d4af37;
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #d4af37, #f6e7b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #aaa;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #888;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #d4af37;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #f6e7b3;
+            transform: translateY(-2px);
+        }
+
+        .footer-divider {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 2rem auto;
+        }
+
+        .workspace-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .workspace-header h2 {
+            margin: 0;
+            font-size: 2.2rem;
+            color: #f6e7b3;
+        }
+
+        .workspace-logout {
+            background: #d10000;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 14px;
+        }
+
+        .workspace-card {
+            background: #111;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        .workspace-doc-card {
+            background: #f4f4f4;
+            color: #111;
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .document-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #e8e8e8;
+            border: 1px solid #d0d0d0;
+            border-radius: 18px 18px 0 0;
+            padding: 14px 18px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .doc-tools {
+            color: #666;
+            letter-spacing: 0.12em;
+        }
+
+        .document-editor {
+            background: #fff;
+            border: 1px solid #d0d0d0;
+            border-top: none;
+            border-radius: 0 0 18px 18px;
+            padding: 18px;
+        }
+
+        .workspace-letter {
+            width: 100%;
+            min-height: 250px;
+            border: none;
+            background: transparent;
+            color: #111;
+            font-size: 1rem;
+            line-height: 1.7;
+            resize: vertical;
+            outline: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .workspace-image-section {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .image-upload-label {
+            display: inline-block;
+            color: #d4af37;
+            font-weight: 700;
+        }
+
+        .image-upload-input {
+            padding: 10px 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: #111;
+            color: #fff;
+        }
+
+        .image-preview {
+            min-height: 120px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #090909;
+            color: #ddd;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 220px;
+            border-radius: 14px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .workspace-status {
+            margin-top: 12px;
+            color: #9fdb7c;
+            min-height: 24px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav .nav-links {
+                gap: 1rem;
+            }
+
+            nav .nav-links a {
+                font-size: 14px;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .family-tree .tree-level {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="access-panel">
+        <div id="access-box">
+            <h1>STAFF LOGIN</h1>
+            <p>Enter your Benyas Industries email and password to access your personal workspace.</p>
+            <input id="staff-email" type="email" placeholder="Enter your email address">
+            <input id="staff-password" type="password" placeholder="Enter your password">
+            <button id="unlock-btn" type="button">Access Workspace</button>
+            <div id="error-msg"></div>
+        </div>
+    </div>
+
+    <div id="page-content">
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <div class="container">
+            <div class="logo">BENYAS INDUSTRIES</div>
+            <ul class="nav-links">
+                <li><a href="#family" class="nav-link active">Family Tree</a></li>
+                <li><a href="#blueprints" class="nav-link">Blueprints</a></li>
+                <li><a href="#final-view" class="nav-link">Final View</a></li>
+                <li><a href="#stats" class="nav-link">Analytics</a></li>
+                <li><a href="#workspace" class="nav-link">Workspace</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <h1>Benyas Industries Staff</h1>
+        <p>Internal staff portal with organizational structure and secure access</p>
+        <div class="hero-badge">🔒 Ultra Secure Access</div>
+    </section>
+
+    <!-- ===== FAMILY TREE SECTION ===== -->
+    <section class="family-tree-section" id="family">
+        <div class="container">
+            <h2 class="section-title">Organizational Family Tree</h2>
+            <h3 class="section-subtitle">Our team hierarchy and structure</h3>
+
+            <div class="family-tree">
+                <!-- Level 1: CEO/Founder -->
+                <div class="tree-level">
+                    <div class="family-member">
+                        <div class="member-avatar">👑</div>
+                        <div class="member-info">
+                            <div class="member-name">Benyas</div>
+                            <div class="member-role">CEO/Founder</div>
+                            <div class="member-description">Visionary leader and founder of Benyas Industries, driving innovation and excellence.</div>
+                            <div class="member-skills">
+                                <span class="skill-badge">Leadership</span>
+                                <span class="skill-badge">Strategy</span>
+                                <span class="skill-badge">Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2: Direct Reports -->
+                <div class="tree-level">
+                    <div class="family-member">
+                        <div class="member-avatar">💻</div>
+                        <div class="member-info">
+                            <div class="member-name">Ali Imran</div>
+                            <div class="member-role">Computer Technician</div>
+                            <div class="member-description">Technical expert responsible for system maintenance and digital infrastructure.</div>
+                            <div class="member-skills">
+                                <span class="skill-badge">IT Support</span>
+                                <span class="skill-badge">Hardware</span>
+                                <span class="skill-badge">Networking</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="family-member">
+                        <div class="member-avatar">👤</div>
+                        <div class="member-info">
+                            <div class="member-name">Tommy Breedon</div>
+                            <div class="member-role">Sales/Funding Manager</div>
+                            <div class="member-description">Strategic sales and funding coordinator, managing client relationships and financial planning.</div>
+                            <div class="member-skills">
+                                <span class="skill-badge">Sales</span>
+                                <span class="skill-badge">Negotiation</span>
+                                <span class="skill-badge">Financial Planning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLUEPRINTS SECTION ===== -->
+    <section class="blueprints-section" id="blueprints">
+        <div class="container">
+            <h2 class="section-title">Blueprints</h2>
+            <h3 class="section-subtitle">Technical designs and architectural plans</h3>
+
+            <div class="blueprints-grid">
+                <div class="blueprint-card">
+                    <img src="assets/file_000000008ea4720ab630962508438ec3.png" alt="Blueprint 1" class="blueprint-image-slot">
+                    <div class="blueprint-info">
+                        <div class="blueprint-title">BenyasAirline</div>
+                        <div class="blueprint-description">Upload or replace this image with your first blueprint design.</div>
+                    </div>
+                </div>
+
+                <div class="blueprint-card">
+                    <img src="assets/Screenshot_20260507_173537_TikTok.jpg" alt="Blueprint 2" class="blueprint-image-slot">
+                    <div class="blueprint-info">
+                        <div class="blueprint-title">Bravaro</div>
+                        <div class="blueprint-description">Upload or replace this image with your second blueprint design.</div>
+                    </div>
+                </div>
+    </section>
+
+   
+    <!-- ===== STATS SECTION ===== -->
+    <section class="stats-section" id="stats">
+        <div class="container">
+            <h2 class="section-title">Analytics Dashboard</h2>
+            <h3 class="section-subtitle">Tracking visits to our main website</h3>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number" id="main-site-visits">0</div>
+                    <div class="stat-label">Main Site Visits</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-number" id="staff-portal-access">0</div>
+                    <div class="stat-label">Staff Portal Access</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-number" id="blueprint-views">0</div>
+                    <div class="stat-label">Blueprint Views</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Team Positions</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://benaiah769-boop.github.io/BenyasIndustries/" target="_blank" class="btn" id="main-site-link">Visit Main Site</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WORKSPACE SECTION ===== -->
+    <section class="workspace-section" id="workspace">
+        <div class="container">
+            <h2 class="section-title">Workspace Hub</h2>
+            <h3 class="section-subtitle">All staff workspaces stay right here on the same page.</h3>
+            <div class="workspace-header">
+                <h2 id="workspace-title">Workspace Hub</h2>
+                <button id="logout-btn" class="workspace-button workspace-logout hidden">Logout</button>
+            </div>
+            <div id="workspace-welcome" class="workspace-welcome" style="text-align:center; margin-bottom:24px; color:#ccc;">Your workspace will appear here after login.</div>
+            <div class="workspace-panels">
+                <div id="benyas-workspace" class="workspace-panel hidden">
+                    <h3>Benyas Workspace</h3>
+                    <p>Welcome back, Benyas. The latest letters from Ali Imran and Tommy Breedon appear below.</p>
+                    <div class="workspace-card">
+                        <h4>Incoming Letters</h4>
+                        <div id="benyas-inbox" class="workspace-inbox">No letters yet.</div>
+                    </div>
+                    <div class="workspace-card">
+                        <h4>Email Delivery</h4>
+                        <p>Letters are also sent to <a href="mailto:benyasontop@gmail.com" style="color:#d4af37;">benyasontop@gmail.com</a> when staff press send.</p>
+                    </div>
+                </div>
+                <div id="ali-workspace" class="workspace-panel hidden">
+                    <h3>Ali Imran Workspace</h3>
+                    <p>Write an idea or letter document for Benyas below, and send it to the Benyas workspace plus the email address.</p>
+                    <div class="workspace-card">
+                        <h4>Replies from Benyas</h4>
+                        <div id="ali-replies-inbox" class="workspace-inbox">No replies yet.</div>
+                    </div>
+                    <div class="workspace-card">
+                        <h4>Sent Items</h4>
+                        <div id="ali-sent-items" class="workspace-inbox">No sent items.</div>
+                    </div>
+                    <hr style="margin:20px 0; border:none; border-top:1px solid rgba(255,255,255,0.08);">
+                    <div class="workspace-card workspace-doc-card">
+                        <div class="document-toolbar">
+                            <div>Ideas / Letter Document</div>
+                            <div class="doc-tools">B • I • U</div>
+                        </div>
+                        <div class="document-editor">
+                            <textarea id="ali-letter-input" class="workspace-letter" placeholder="Draft your idea, letter, and notes like a Word document..."></textarea>
+                        </div>
+                    </div>
+                    <div class="workspace-image-section">
+                        <label class="image-upload-label" for="ali-image-input">Choose image to send</label>
+                        <input id="ali-image-input" type="file" accept="image/*" class="image-upload-input">
+                        <button id="ali-send-image-btn" class="workspace-button">Send Image to Benyas</button>
+                        <div id="ali-image-preview" class="image-preview">No image selected.</div>
+                    </div>
+                    <button id="ali-send-letter-btn" class="workspace-button">Send Idea Letter to Benyas</button>
+                    <div id="ali-letter-status" class="workspace-status"></div>
+                </div>
+                <div id="tommy-workspace" class="workspace-panel hidden">
+                    <h3>Tommy Breedon Workspace</h3>
+                    <p>Write an idea or letter document for Benyas below, and send it to the Benyas workspace plus the email address.</p>
+                    <div class="workspace-card">
+                        <h4>Replies from Benyas</h4>
+                        <div id="tommy-replies-inbox" class="workspace-inbox">No replies yet.</div>
+                    </div>
+                    <div class="workspace-card">
+                        <h4>Sent Items</h4>
+                        <div id="tommy-sent-items" class="workspace-inbox">No sent items.</div>
+                    </div>
+                    <hr style="margin:20px 0; border:none; border-top:1px solid rgba(255,255,255,0.08);">
+                    <div class="workspace-card workspace-doc-card">
+                        <div class="document-toolbar">
+                            <div>Ideas / Letter Document</div>
+                            <div class="doc-tools">B • I • U</div>
+                        </div>
+                        <div class="document-editor">
+                            <textarea id="tommy-letter-input" class="workspace-letter" placeholder="Draft your idea, letter, and notes like a Word document..."></textarea>
+                        </div>
+                    </div>
+                    <div class="workspace-image-section">
+                        <label class="image-upload-label" for="tommy-image-input">Choose image to send</label>
+                        <input id="tommy-image-input" type="file" accept="image/*" class="image-upload-input">
+                        <button id="tommy-send-image-btn" class="workspace-button">Send Image to Benyas</button>
+                        <div id="tommy-image-preview" class="image-preview">No image selected.</div>
+                    </div>
+                    <button id="tommy-send-letter-btn" class="workspace-button">Send Idea Letter to Benyas</button>
+                    <div id="tommy-letter-status" class="workspace-status"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-divider"></div>
+        <p>© 2026 Benyas Industries. All rights reserved.</p>
+        <p>Ultra Secure Staff Portal - Authorized Personnel Only</p>
+    </footer>
+    </div>
+
+    <script>
+        const accessPanel = document.getElementById('access-panel');
+        const pageContent = document.getElementById('page-content');
+        const emailInput = document.getElementById('staff-email');
+        const passwordInput = document.getElementById('staff-password');
+        const errorMessage = document.getElementById('error-msg');
+        const unlockButton = document.getElementById('unlock-btn');
+
+        // Staff authentication credentials
+        const staffCredentials = {
+            'BenyasFounder@benyasindustries.com': {
+                password: 'BenyasIndustries342',
+                workspace: 'benyas-workspace',
+                name: 'Benyas'
+            },
+            'AliTech@benyasindustries.com': {
+                password: 'AliImran4536',
+                workspace: 'ali-workspace',
+                name: 'Ali Imran'
+            },
+            'TommyFunding@benyasindustries.com': {
+                password: 'TommyBreedon6758',
+                workspace: 'tommy-workspace',
+                name: 'Tommy Breedon'
+            }
+        };
+
+        const workspaceWelcome = document.getElementById('workspace-welcome');
+        const workspaceTitle = document.getElementById('workspace-title');
+        const logoutButton = document.getElementById('logout-btn');
+        const aliLetterInput = document.getElementById('ali-letter-input');
+        const tommyLetterInput = document.getElementById('tommy-letter-input');
+        const aliLetterStatus = document.getElementById('ali-letter-status');
+        const tommyLetterStatus = document.getElementById('tommy-letter-status');
+        const aliImageInput = document.getElementById('ali-image-input');
+        const tommyImageInput = document.getElementById('tommy-image-input');
+        const aliSendButton = document.getElementById('ali-send-letter-btn');
+        const tommySendButton = document.getElementById('tommy-send-letter-btn');
+        const aliSendImageButton = document.getElementById('ali-send-image-btn');
+        const tommySendImageButton = document.getElementById('tommy-send-image-btn');
+        const aliImagePreview = document.getElementById('ali-image-preview');
+        const tommyImagePreview = document.getElementById('tommy-image-preview');
+        const benyasInbox = document.getElementById('benyas-inbox');
+
+        function getBenyasLetters() {
+            return JSON.parse(localStorage.getItem('benyasLetters') || '[]');
+        }
+
+        function saveBenyasLetters(letters) {
+            localStorage.setItem('benyasLetters', JSON.stringify(letters));
+        }
+
+        function getUserSentItems(email) {
+            const key = `sent-${email}`;
+            return JSON.parse(localStorage.getItem(key) || '[]');
+        }
+
+        function saveUserSentItems(email, items) {
+            const key = `sent-${email}`;
+            localStorage.setItem(key, JSON.stringify(items));
+        }
+
+        function getUserReplies(email) {
+            const key = `replies-${email}`;
+            return JSON.parse(localStorage.getItem(key) || '[]');
+        }
+
+        function saveUserReplies(email, replies) {
+            const key = `replies-${email}`;
+            localStorage.setItem(key, JSON.stringify(replies));
+        }
+
+        function renderStaffInbox(currentEmail, inboxId, sentItemsId, repliesId) {
+            if (!currentEmail) return;
+
+            // Render sent items
+            const sentContainer = document.getElementById(sentItemsId);
+            if (sentContainer) {
+                const sentItems = getUserSentItems(currentEmail);
+                if (sentItems.length === 0) {
+                    sentContainer.innerHTML = '<p style="color:#aaa;">No sent items.</p>';
+                } else {
+                    sentContainer.innerHTML = sentItems.map((item, index) => `
+                        <div style="margin-bottom:14px; padding:12px; border:1px solid rgba(212,175,55,0.2); border-radius:14px; background:rgba(212,175,55,0.05);">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                <div>
+                                    <strong style="color:#d4af37;">To: Benyas</strong> <span style="color:#bbb; font-size:12px;">(${item.date})</span>
+                                </div>
+                                <button class="delete-sent-btn" data-email="${currentEmail}" data-index="${index}" style="background:#d10000; color:#fff; border:none; padding:4px 10px; border-radius:6px; cursor:pointer; font-weight:600; font-size:11px;">Delete</button>
+                            </div>
+                            <p style="color:#ddd; font-size:13px; white-space:pre-wrap;">${item.text || item.type}</p>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            // Render replies
+            const repliesContainer = document.getElementById(repliesId);
+            if (repliesContainer) {
+                const replies = getUserReplies(currentEmail);
+                if (replies.length === 0) {
+                    repliesContainer.innerHTML = '<p style="color:#aaa;">No replies yet.</p>';
+                } else {
+                    repliesContainer.innerHTML = replies.map((reply, index) => `
+                        <div style="margin-bottom:14px; padding:12px; border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.02);">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                <div>
+                                    <strong style="color:#f6e7b3;">From: Benyas</strong> <span style="color:#bbb; font-size:12px;">(${reply.date})</span>
+                                </div>
+                                <button class="delete-reply-btn" data-email="${currentEmail}" data-index="${index}" style="background:#d10000; color:#fff; border:none; padding:4px 10px; border-radius:6px; cursor:pointer; font-weight:600; font-size:11px;">Delete</button>
+                            </div>
+                            <p style="margin:10px 0 0; color:#ddd; white-space:pre-wrap;">${reply.text}</p>
+                            <div style="margin-top:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.05);">
+                                <textarea class="reply-to-benyas-input" data-email="${currentEmail}" data-reply-index="${index}" placeholder="Reply to Benyas..." style="width:100%; min-height:80px; border-radius:12px; border:1px solid rgba(212,175,55,0.2); background:#111; color:#ddd; padding:10px; font-family:inherit; margin-bottom:10px;"></textarea>
+                                <button class="reply-to-benyas-btn" data-email="${currentEmail}" data-reply-index="${index}" style="background:#d4af37; color:#111; border:none; padding:8px 16px; border-radius:10px; cursor:pointer; font-weight:700; font-size:13px;">Send Reply</button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            // Attach delete handlers
+            document.querySelectorAll('.delete-sent-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const email = e.target.getAttribute('data-email');
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    const items = getUserSentItems(email);
+                    items.splice(index, 1);
+                    saveUserSentItems(email, items);
+                    renderStaffInbox(email, null, sentItemsId, repliesId);
+                });
+            });
+
+            document.querySelectorAll('.delete-reply-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const email = e.target.getAttribute('data-email');
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    const replies = getUserReplies(email);
+                    replies.splice(index, 1);
+                    saveUserReplies(email, replies);
+                    renderStaffInbox(email, null, sentItemsId, repliesId);
+                });
+            });
+
+            document.querySelectorAll('.reply-to-benyas-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const email = e.target.getAttribute('data-email');
+                    const textarea = document.querySelector(`.reply-to-benyas-input[data-email="${email}"]`);
+                    const replyText = textarea.value.trim();
+                    if (replyText) {
+                        const author = staffCredentials[email].name;
+                        sendReplyToStaff('Benyas', author, replyText);
+                        textarea.value = '';
+                        renderStaffInbox(email, null, sentItemsId, repliesId);
+                    } else {
+                        alert('Write a reply before sending.');
+                    }
+                });
+            });
+        }
+
+        function renderBenyasInbox() {
+            if (!benyasInbox) return;
+            const letters = getBenyasLetters();
+            if (letters.length === 0) {
+                benyasInbox.innerHTML = '<p style="color:#aaa;">No letters yet.</p>';
+                return;
+            }
+
+            benyasInbox.innerHTML = letters.map((letter, index) => {
+                if (letter.type === 'image') {
+                    return `
+                        <div style="margin-bottom:18px; padding:14px; border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.02);">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                                <div>
+                                    <strong style="color:#f6e7b3;">${letter.author}</strong> <span style="color:#bbb; font-size:13px;">(${letter.date})</span>
+                                </div>
+                                <button class="delete-letter-btn" data-index="${index}" style="background:#d10000; color:#fff; border:none; padding:6px 14px; border-radius:8px; cursor:pointer; font-weight:600; font-size:12px;">Delete</button>
+                            </div>
+                            <p style="margin:10px 0 8px; color:#ddd;">Image sent: ${letter.filename}</p>
+                            <img src="${letter.imageData}" alt="Sent image" style="width:100%; border-radius:14px; object-fit:contain;">
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div style="margin-bottom:18px; padding:14px; border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.02);">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                            <div>
+                                <strong style="color:#f6e7b3;">${letter.author}</strong> <span style="color:#bbb; font-size:13px;">(${letter.date})</span>
+                            </div>
+                            <button class="delete-letter-btn" data-index="${index}" style="background:#d10000; color:#fff; border:none; padding:6px 14px; border-radius:8px; cursor:pointer; font-weight:600; font-size:12px;">Delete</button>
+                        </div>
+                        <p style="margin:10px 0 0; color:#ddd; white-space:pre-wrap;">${letter.text}</p>
+                        <div style="margin-top:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.05);">
+                            <textarea class="reply-input" data-index="${index}" placeholder="Write your reply..." style="width:100%; min-height:100px; border-radius:12px; border:1px solid rgba(212,175,55,0.2); background:#111; color:#ddd; padding:10px; font-family:inherit; margin-bottom:10px;"></textarea>
+                            <button class="reply-btn" data-index="${index}" style="background:#d4af37; color:#111; border:none; padding:8px 16px; border-radius:10px; cursor:pointer; font-weight:700;">Send Reply</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Attach delete handlers
+            document.querySelectorAll('.delete-letter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    deleteLetter(index);
+                });
+            });
+
+            // Attach reply handlers
+            document.querySelectorAll('.reply-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    const letters = getBenyasLetters();
+                    const letter = letters[index];
+                    const replyInput = document.querySelector(`.reply-input[data-index="${index}"]`);
+                    const replyText = replyInput.value.trim();
+                    if (replyText && letter) {
+                        sendReply(letter.author, replyText);
+                        replyInput.value = '';
+                        renderBenyasInbox();
+                    } else if (!replyText) {
+                        alert('Write a reply before sending.');
+                    }
+                });
+            });
+        }
+
+        function deleteLetter(index) {
+            const letters = getBenyasLetters();
+            letters.splice(index, 1);
+            saveBenyasLetters(letters);
+            renderBenyasInbox();
+        }
+
+        function sendReply(recipient, replyText) {
+            const mailtoUrl = `mailto:benyasontop@gmail.com?subject=${encodeURIComponent('Reply from Benyas to ' + recipient)}&body=${encodeURIComponent(replyText)}`;
+            window.open(mailtoUrl, '_blank');
+            alert(`Reply sent to ${recipient} and benyasontop@gmail.com`);
+        }
+
+        function sendReplyToStaff(from, to, replyText) {
+            const mailtoUrl = `mailto:benyasontop@gmail.com?subject=${encodeURIComponent('Reply from ' + from + ' to Benyas')}&body=${encodeURIComponent(replyText)}`;
+            window.open(mailtoUrl, '_blank');
+            alert(`Reply sent to Benyas and benyasontop@gmail.com`);
+        }
+
+        function sendLetter(author, text, statusElement, senderEmail) {
+            if (!text || !text.trim()) {
+                if (statusElement) {
+                    statusElement.textContent = 'Write a letter before sending.';
+                    statusElement.style.color = '#ff9999';
+                }
+                return;
+            }
+
+            const letter = {
+                author,
+                text: text.trim(),
+                date: new Date().toLocaleString()
+            };
+
+            const letters = getBenyasLetters();
+            letters.unshift(letter);
+            saveBenyasLetters(letters);
+            renderBenyasInbox();
+
+            // Track sent item
+            if (senderEmail) {
+                const sentItems = getUserSentItems(senderEmail);
+                sentItems.unshift({ text: text.trim(), date: new Date().toLocaleString() });
+                saveUserSentItems(senderEmail, sentItems);
+            }
+
+            const mailtoUrl = `mailto:benyasontop@gmail.com?subject=${encodeURIComponent('Letter from ' + author)}&body=${encodeURIComponent(letter.text)}`;
+            window.open(mailtoUrl, '_blank');
+
+            if (statusElement) {
+                statusElement.textContent = 'Letter sent to the Benyas workspace and benyasontop@gmail.com.';
+                statusElement.style.color = '#9fdb7c';
+            }
+        }
+
+        function sendImage(author, fileInput, previewElement, statusElement, senderEmail) {
+            const file = fileInput.files && fileInput.files[0];
+            if (!file) {
+                if (statusElement) {
+                    statusElement.textContent = 'Choose an image before sending.';
+                    statusElement.style.color = '#ff9999';
+                }
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = () => {
+                const imageData = reader.result;
+                const imageLetter = {
+                    author,
+                    type: 'image',
+                    filename: file.name,
+                    imageData,
+                    date: new Date().toLocaleString()
+                };
+
+                const letters = getBenyasLetters();
+                letters.unshift(imageLetter);
+                saveBenyasLetters(letters);
+                renderBenyasInbox();
+
+                // Track sent item
+                if (senderEmail) {
+                    const sentItems = getUserSentItems(senderEmail);
+                    sentItems.unshift({ text: `Image: ${file.name}`, type: 'image', date: new Date().toLocaleString() });
+                    saveUserSentItems(senderEmail, sentItems);
+                }
+
+                if (previewElement) {
+                    previewElement.innerHTML = `<img src="${imageData}" alt="Selected image">`;
+                }
+
+                const mailtoUrl = `mailto:benyasontop@gmail.com?subject=${encodeURIComponent('Image from ' + author)}&body=${encodeURIComponent('Image sent: ' + file.name + '\n\nCheck the workspace inbox for the image preview.')}`;
+                window.open(mailtoUrl, '_blank');
+
+                if (statusElement) {
+                    statusElement.textContent = 'Image sent to the Benyas workspace and benyasontop@gmail.com.';
+                    statusElement.style.color = '#9fdb7c';
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function showWorkspace(email) {
+            const staff = staffCredentials[email];
+            if (!staff) return;
+
+            localStorage.setItem('benyasStaffLoggedIn', 'true');
+            localStorage.setItem('benyasStaffEmail', email);
+            localStorage.setItem('benyasStaffName', staff.name);
+
+            accessPanel.style.display = 'none';
+            pageContent.style.display = 'block';
+
+            document.querySelectorAll('.workspace-panel').forEach(panel => panel.classList.add('hidden'));
+            const activeWorkspace = document.getElementById(staff.workspace);
+            if (activeWorkspace) {
+                activeWorkspace.classList.remove('hidden');
+            }
+
+            if (workspaceTitle) {
+                workspaceTitle.textContent = `${staff.name} Workspace`;
+            }
+            if (workspaceWelcome) {
+                workspaceWelcome.textContent = `Welcome, ${staff.name}. Your workspace is ready.`;
+            }
+            if (logoutButton) {
+                logoutButton.classList.remove('hidden');
+            }
+
+            renderBenyasInbox();
+
+            // Load replies and sent items for Ali and Tommy
+            if (email === 'AliTech@benyasindustries.com') {
+                renderStaffInbox(email, 'ali-inbox', 'ali-sent-items', 'ali-replies-inbox');
+            } else if (email === 'TommyFunding@benyasindustries.com') {
+                renderStaffInbox(email, 'tommy-inbox', 'tommy-sent-items', 'tommy-replies-inbox');
+            }
+        }
+
+        function unlockPortal() {
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+
+            if (!email || !password) {
+                errorMessage.textContent = 'Please enter both email and password.';
+                return;
+            }
+
+            const staff = staffCredentials[email];
+            if (staff && staff.password === password) {
+                showWorkspace(email);
+            } else {
+                errorMessage.textContent = 'Invalid email or password. Access denied.';
+            }
+        }
+
+        unlockButton.addEventListener('click', unlockPortal);
+        passwordInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                unlockPortal();
+            }
+        });
+
+        if (aliSendButton) {
+            aliSendButton.addEventListener('click', () => {
+                const senderEmail = localStorage.getItem('benyasStaffEmail');
+                sendLetter('Ali Imran', aliLetterInput.value, aliLetterStatus, senderEmail);
+                aliLetterInput.value = '';
+            });
+        }
+
+        if (tommySendButton) {
+            tommySendButton.addEventListener('click', () => {
+                const senderEmail = localStorage.getItem('benyasStaffEmail');
+                sendLetter('Tommy Breedon', tommyLetterInput.value, tommyLetterStatus, senderEmail);
+                tommyLetterInput.value = '';
+            });
+        }
+
+        if (aliSendImageButton) {
+            aliSendImageButton.addEventListener('click', () => {
+                const senderEmail = localStorage.getItem('benyasStaffEmail');
+                sendImage('Ali Imran', aliImageInput, aliImagePreview, aliLetterStatus, senderEmail);
+            });
+        }
+
+        if (tommySendImageButton) {
+            tommySendImageButton.addEventListener('click', () => {
+                const senderEmail = localStorage.getItem('benyasStaffEmail');
+                sendImage('Tommy Breedon', tommyImageInput, tommyImagePreview, tommyLetterStatus, senderEmail);
+            });
+        }
+
+        if (logoutButton) {
+            logoutButton.addEventListener('click', () => {
+                localStorage.removeItem('benyasStaffLoggedIn');
+                localStorage.removeItem('benyasStaffEmail');
+                localStorage.removeItem('benyasStaffName');
+                accessPanel.style.display = 'flex';
+                pageContent.style.display = 'none';
+                document.querySelectorAll('.workspace-panel').forEach(panel => panel.classList.add('hidden'));
+                if (workspaceTitle) {
+                    workspaceTitle.textContent = 'Workspace Hub';
+                }
+                if (workspaceWelcome) {
+                    workspaceWelcome.textContent = 'Your workspace will appear here after login.';
+                }
+                if (logoutButton) {
+                    logoutButton.classList.add('hidden');
+                }
+                emailInput.value = '';
+                passwordInput.value = '';
+                aliLetterInput.value = '';
+                tommyLetterInput.value = '';
+                if (aliImageInput) {
+                    aliImageInput.value = '';
+                }
+                if (tommyImageInput) {
+                    tommyImageInput.value = '';
+                }
+                if (aliImagePreview) {
+                    aliImagePreview.innerHTML = 'No image selected.';
+                }
+                if (tommyImagePreview) {
+                    tommyImagePreview.innerHTML = 'No image selected.';
+                }
+                errorMessage.textContent = '';
+            });
+        }
+
+        // Check if already logged in
+        if (localStorage.getItem('benyasStaffLoggedIn') === 'true') {
+            const email = localStorage.getItem('benyasStaffEmail');
+            if (email && staffCredentials[email]) {
+                showWorkspace(email);
+            }
+        }
+    </script>
+</body>
+</html>
